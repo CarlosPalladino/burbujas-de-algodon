@@ -5,16 +5,16 @@ module.exports = {
       await queryInterface.createTable('padres-hijos', {
         id: {
           allowNull: false,
-          DataTypes: DataTypes.TEXT,
+          type: DataTypes.TEXT,
           primareKey: true
         },
         padreId: {
           allowNull: false,
-          DataTypes: DataTypes.TEXT,
+          type: DataTypes.TEXT,
         },
         hijoId: {
           allowNull: false,
-          DataTypes: DataTypes.TEXT,
+          type: DataTypes.TEXT,
         }
       })}
    catch (err) {
