@@ -9,9 +9,9 @@
     "start": "node source/app.js",
     "sq-i": "sequelize init",
     "sq-ms": "sequelize init:migrations && sequelize init:seeders",
-    "sq-mg": "sequelize migration:generate --name User",
+    "sq-mg": "sequelize migration:generate --name padres_hijos",
     "sq-sg": "sequelize seed:generate --name User",
-    "sq-db": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
+    "sq-db": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize "
   },
   "devDependencies": {
     "nodemon": "^2.0.20",

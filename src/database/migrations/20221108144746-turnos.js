@@ -1,27 +1,33 @@
-'use strict';
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
- try {
-  await queryInterface.createTable('turnos', { 
-      id: Sequelize.INTEGER,
-      maniana :{
-        allowNull: false,
-        
-      }
-   });
- }
+  async up(queryInterface, DataTypes) {
+    try {
+      await queryInterface.createTable('turnos', {
+        id: {
+          allowNull: false,
+          DataTypes: DataTypes.TEXT,
+          primareKey: true
+        },
+        maniana: {
+          allowNull: true,
 
-     catch (e) {
+        },
+        tarde: {
+          allowNull: true,
+
+        }
+      });
+    }
+
+    catch (e) {
       console.log(e);
-     
-  }
-},
-  
-  async down (queryInterface, Sequelize) {
 
-      await queryInterface.dropTable('turnos');
-     
+    }
+  },
+
+  async down(queryInterface, Sequelize) {
+
+    await queryInterface.dropTable('turnos');
+
   }
 };
