@@ -1,11 +1,10 @@
-const {express} = require('express');
+const express = require('express');
 const app = express();
 const sequelize = require('sequelize');
-const sequelize =new sequelize('jardines burbujas','root',)
 
-const {port,calback} = require('./modules/port')
+const {port,callback} = require('./modules/port')
 
-app.listen(port, calback , require())
+app.listen(port,callback )
 
 
 

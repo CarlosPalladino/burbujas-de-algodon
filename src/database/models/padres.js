@@ -1,6 +1,4 @@
-const { DataTypes } = require("sequelize");
-
-module.exports = (DataTypes, sequelize) => {
+module.exports = (sequelize, DataTypes) => {
     let alias = "padres"
     let cols = {
         id: {
@@ -21,23 +19,27 @@ module.exports = (DataTypes, sequelize) => {
             unique: true
         },
         password: {
-            type: DataTypes.TEXT
+            type: DataTypes.STRING
         },
         telefono: {
-            type: DataTypes.TEXT
+            type: DataTypes.BIGINT
         }
 
-    },
-     config = {
-        dropTable:"Padres",
-        
-     }
+    }
+    let config = {
+        tableName: "padres",
+        timestamps: false,
+        deleteAt: false
 
-    const padres = (alias, cols, config)
+    }
+
+    const padres = sequelize.define(alias, cols, config)
     padres.associate = function (modelos) {
-        padres.belongsTo(modelos.padres_hijos, {
-            as: "padreId",
-            foreignKey: "padreId"
+        padres.belongsTo(modelos.hijos, {
+            as: "hijos",
+            through: "padres-hijos",
+            foreignKey: "padreId",
+            otherKey: "hijoId"
         })
 
     }

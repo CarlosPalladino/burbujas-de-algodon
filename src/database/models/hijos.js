@@ -1,6 +1,5 @@
-const { DataTypes } = require("sequelize");
 
-module.exports = (DataTypes, sequelize) => {
+module.exports = (sequelize,DataTypes) => {
     let alias = "hijos"
     let cols = {
         id: {
@@ -17,14 +16,22 @@ module.exports = (DataTypes, sequelize) => {
           }
 
 }
+  let config ={
+    tableName:"hijos",
+    timestamps: false,
+    deleteAt: false
+    
+  } 
 
-const hijos = (alias, cols, config)
+const hijos = sequelize.define(alias, cols, config)
 
 hijos.associate = function (modelos) {
-    hijos.belongsTo(modelos.padres_hijos, {
+    hijos.belongsTo (modelos.padres, {
         as: "padres",
         foreignKey: "hijoId",
         otherKey:"padreId",
+        through: "padres-hijos",
+
     })
 
 }

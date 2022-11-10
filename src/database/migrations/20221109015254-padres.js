@@ -20,12 +20,12 @@ module.exports = {
         unique: true
       },
       password: {
-        type: DataTypes.TEXT
+        type: DataTypes.STRING,
       },
      
     
       telefono: {
-        type: DataTypes.TEXT
+        type: DataTypes.BIGINT
       }
     })
   }

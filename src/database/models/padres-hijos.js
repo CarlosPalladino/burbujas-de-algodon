@@ -1,7 +1,8 @@
 const { DataTypes } = require("sequelize");
 
+
 module.exports = (DataTypes, sequelize) => {
-    let alias = "padres_hijos"
+    let alias = "padresHijos"
     let cols = {
         id: {
             allowNull: false,
@@ -12,13 +13,18 @@ module.exports = (DataTypes, sequelize) => {
           padreId: {
             type: DataTypes.STRING
           },
-          hijoID: {
+          hijoId: {
             type: DataTypes.STRING
           }
 
 }
+let config ={
+  tableName:"padresHijos",
+  timestamps: false,
+  deleteAt: false
+}
 
-const padres_hijos = (alias, cols, config)
-    return padres_hijos
+const padresHijos = (alias, cols, config)
+    return padresHijos
 
 }
