@@ -9,4 +9,4 @@ app.listen(port, calback , require())
 
 
 
-app.use(require('./routes/product.routes'))
+app.use(require('./routes/padres.routes'))
