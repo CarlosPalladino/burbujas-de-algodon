@@ -7,13 +7,13 @@ const tutores = {
     // },
     created: async (req, res) => {
 
-        await padres.create({
-            nombre: "griselda",
-            apellido: "perez",
-            email: "griselda@gmail.com",
-            telefono: 1144566,
-            password: "11123"
-        })
+        // await padres.create({
+        //     nombre: "griselda",
+        //     apellido: "perez",
+        //     email: "griselda@gmail.com",
+        //     telefono: 1144566,
+        //     password: "11123"
+        // })
 
     }
 }
