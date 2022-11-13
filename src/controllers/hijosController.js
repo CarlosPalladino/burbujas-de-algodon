@@ -1,13 +1,22 @@
-const {usuarios} = require('../database/models')
-const hijos ={
-created: async (req,res) =>{
-await usuarios.create({
-    nombre: "joaquin" ,
-    apellido:"perez",
-    edad:10
-}) 
-    
-}
+const { hijos } = require('../database/models')
+const db = require('../database/models')
+const alumnos = {
+    list:(req, res)=>{
+        db.hijos
+            .findAll(
+                { include: [{association:"padres"}]}
+
+            )
+            .then()(hijos => {
+                return res.json(hijos)
+            })},
+    created: async (req, res) => {
+        await hijos.create({
+            nombre: "franco",
+            apellido: "gimenez",
+        })
+
+    }
 }
 
-module.exports = hijos
+module.exports = alumnos

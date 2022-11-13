@@ -14,10 +14,8 @@ module.exports = {
     },
     apellido: {
       type: DataTypes.STRING
-    },
-    edad: {
-  type:DataTypes.NUMBER
     }
+
   })
 }
  catch(e){

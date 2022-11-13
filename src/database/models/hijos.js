@@ -13,9 +13,6 @@ module.exports = (sequelize,DataTypes) => {
           },
           apellido: {
             type: DataTypes.STRING
-          },
-          edad:{
-            type: DataTypes.NUMBER
           }
 
 }
@@ -29,10 +26,10 @@ module.exports = (sequelize,DataTypes) => {
 const hijos = sequelize.define(alias, cols, config)
 
 hijos.associate = function (modelos) {
-    hijos.belongsTo (modelos.padres, {
+    hijos.belongsTo(modelos.padres, {
         as: "padres",
         foreignKey: "hijoId",
-        otherKey:"padreId",
+        // otherKey:"padreId",
         through: "padres-hijos",
 
     })

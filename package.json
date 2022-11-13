@@ -5,7 +5,7 @@
     "sequelize": "^6.25.3"
   },
   "scripts": {
-    "test":"node src/app.js  -e json,js,mjs,ejs",
+    "test":"nodemon src/app.js  -e json,js,mjs,ejs",
     "start": "node src/app.js",
     "sq-i": "sequelize init",
     "sq-ms": "sequelize init:migrations && sequelize init:seeders",

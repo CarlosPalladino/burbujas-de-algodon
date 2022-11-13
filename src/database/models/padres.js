@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
 
     const padres = sequelize.define(alias, cols, config)
     padres.associate = function (modelos) {
-        padres.belongsTo(modelos.hijos, {
+        padres.belongsToMany(modelos.hijos, {
             as: "hijos",
             through: "padres-hijos",
             foreignKey: "padreId",

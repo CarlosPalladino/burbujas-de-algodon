@@ -22,8 +22,6 @@ module.exports = {
       password: {
         type: DataTypes.STRING,
       },
-     
-    
       telefono: {
         type: DataTypes.BIGINT
       }
@@ -32,11 +30,8 @@ module.exports = {
    catch(e){
     console.log(e)
    }
-
 },
-
   async down (queryInterface, Sequelize) {
- 
      await queryInterface.dropTable('padres');
   }
 };

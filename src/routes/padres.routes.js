@@ -1,8 +1,10 @@
 const Router = require('express')
 const router = Router()
-const {created}= require('../controllers/padresController')
+const {created,list}= require('../controllers/padresController')
 
-router.post('/',created)
+router.get('/padres',list)
+router.post('/create',created);
 
 
-module.exports =router
+
+module.exports=router
