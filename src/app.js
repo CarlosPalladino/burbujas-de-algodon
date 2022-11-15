@@ -8,5 +8,5 @@ app.listen(port,callback )
 
 
 
-app.use(require('./routes/padres.routes'))
-app.use(require('./routes/hijos.routes'))
+app.use("/padres",require('./routes/padres.routes'))
+app.use( "/hijos", require ('./routes/hijos.routes'))

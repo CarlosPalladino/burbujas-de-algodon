@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         telefono: {
             type: DataTypes.BIGINT
         }
+    
 
     }
     let config = {
@@ -34,14 +35,14 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     const padres = sequelize.define(alias, cols, config)
-    padres.associate = function (modelos) {
-        padres.belongsToMany(modelos.hijos, {
-            as: "hijos",
-            through: "padres-hijos",
+    padres.associate = function (models) {
+        padres.belongsToMany(models.hijos,{
+          as: "hijos",
             foreignKey: "padreId",
-            otherKey: "hijoId"
+            otherKey: "hijoId",
+            timestamps: false,
+            through:"padreshijos" 
         })
-
     }
     return padres
 

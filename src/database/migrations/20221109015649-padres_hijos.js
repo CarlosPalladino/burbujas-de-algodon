@@ -1,8 +1,7 @@
-
 module.exports = {
   async up(queryInterface, DataTypes) {
     try {
-      await queryInterface.createTable('padres-hijos', {
+      await queryInterface.createTable('padresHijos', {
         id: {
           allowNull: false,
           type: DataTypes.TEXT,
@@ -24,6 +23,6 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
 
-        await queryInterface.dropTable('padres-hijos');
+        await queryInterface.dropTable('padresHijos');
     }
   };
