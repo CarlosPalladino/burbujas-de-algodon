@@ -34,6 +34,9 @@ module.exports = (sequelize, DataTypes) => {
 
     })
 
+  },
+  hijos.associate = function (models) {
+    
   }
 
 

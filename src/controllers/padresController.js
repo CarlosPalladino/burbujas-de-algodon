@@ -5,15 +5,26 @@ const tutores = {
     list: async (req, res) => {
         try {
             let padresdb = await padres.findAll(
-            { include: { all: true } } )
+                { include: { all: true } })
             return res.status(200).json(padresdb)
         }
-         catch (error) {
+        catch (error) {
             return res.status(500).json(error)
 
-        } 
-        
+        }
+
     },
+    findOne: async (req, res) => {
+        try {
+            let padresdb = await padres.findByPk(rq.params.id)
+            return res.status(200).json(padresdb)
+        }
+        catch (error) {
+            return res.status(500).json(error)
+
+        }
+    },
+
     created: async (req, res) => {
         await padres.create({
             nombre: "andrea",
@@ -23,8 +34,32 @@ const tutores = {
             password: "11123"
         })
     },
-    addUser async (req, res) => {
-        
+
+    edit: async (req, res) => {
+        try {
+            await padres.update({
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                // email: req.body.email,
+                // telefono: req.body.telefono,
+                // password: req.body.password
+            })
+        } catch (error) {
+            return res.status(500).json(error)
+        }
+
+    },
+
+    delete: async (req, res) => {
+
+        await padres.delete({ where: req.params.id })
+    },
+    add: async (req, res) => {
+
+        let padresdb = await padresdb
+
     }
 }
+
+
 module.exports = tutores
