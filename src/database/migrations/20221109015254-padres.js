@@ -24,6 +24,9 @@ module.exports = {
       },
       telefono: {
         type: DataTypes.BIGINT
+      },
+      hijo:{
+        
       }
     })
   }

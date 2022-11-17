@@ -14,6 +14,12 @@ module.exports = {
     },
     apellido: {
       type: DataTypes.STRING
+    },
+    turno:{
+      type: DataTypes.TEXT,
+      allowNull: false,
+
+
     }
 
   })

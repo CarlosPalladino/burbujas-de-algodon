@@ -40,9 +40,9 @@ const tutores = {
             await padres.update({
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
-                // email: req.body.email,
-                // telefono: req.body.telefono,
-                // password: req.body.password
+                email: req.body.email,
+                telefono: req.body.telefono,
+                password: req.body.password
             })
         } catch (error) {
             return res.status(500).json(error)

@@ -14,6 +14,7 @@ const alumnos = {
         await hijos.create({
             nombre: "franco",
             apellido: "gimenez",
+            turno:"maniana"
         })
 
     },
@@ -32,9 +33,8 @@ const alumnos = {
             await hijos.update({
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
-                email: req.body.email,
-                telefono: req.body.telefono,
-                password: req.body.password
+                turno: req.body.turno
+
             })
         } catch (error) {
             return res.status(500).json(error)

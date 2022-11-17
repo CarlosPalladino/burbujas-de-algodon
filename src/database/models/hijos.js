@@ -9,10 +9,20 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     nombre: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+
     },
     apellido: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+
+    },
+    turno:{
+      type: DataTypes.TEXT,
+      allowNull: false,
+
+
     }
   }
   let config = {
@@ -35,11 +45,15 @@ module.exports = (sequelize, DataTypes) => {
     })
 
   },
+
   hijos.associate = function (models) {
-    
+    hijos.hasMany(models.turnos, {
+    as:"horarios",
+    foreignKey: "maniana",
+    otherKey: "tarde"
   }
 
-
+  )}
   return hijos
 
 }

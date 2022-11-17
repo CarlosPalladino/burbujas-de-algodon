@@ -22,9 +22,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         telefono: {
-            type: DataTypes.BIGINT
-        }
-    
+            type: DataTypes.NUMBER
+        },
+      
 
     }
     let config = {
