@@ -10,3 +10,4 @@ app.listen(port,callback )
 
 app.use("/padres",require('./routes/padres.routes'))
 app.use( "/hijos", require ('./routes/hijos.routes'))
+app.use( "/mensaje", require ('./routes/hijos.routes'))
