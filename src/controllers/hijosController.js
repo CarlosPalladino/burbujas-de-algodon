@@ -1,32 +1,33 @@
 const { hijos } = require('../database/models')
 const db = require('../database/models')
 const alumnos = {
-    list:(req, res)=>{
+    list: (req, res) => {
         db.hijos
             .findAll(
-                { include: {all:true}}
+                { include: { all: true } }
 
             )
             .then()(hijos => {
                 return res.json(hijos)
-            })},
+            })
+    },
     created: async (req, res) => {
         await hijos.create({
             nombre: "franco",
             apellido: "gimenez",
-            turno:"maniana"
+            turno: "maniana"
         })
 
     },
-    findOne: async (req,res)=> {
+    findOne: async (req, res) => {
         try {
             let hijosdb = await hijos.findByPk(rq.params.id)
             return res.status(200).json(hijosdb)
         }
-         catch (error) {
+        catch (error) {
             return res.status(500).json(error)
 
-        } 
+        }
     },
     edit: async (req, res) => {
         try {
@@ -41,7 +42,7 @@ const alumnos = {
         }
 
     },
-    
+
     delete: async (req, res) => {
 
         await hijos.delete({ where: req.params.id })
