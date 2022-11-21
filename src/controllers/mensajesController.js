@@ -1,4 +1,4 @@
-const { mensajes } = require('../database/models/index')
+const { mensajes } = require('../src/database/models/index')
 const mensajes = {
     lista: async (req, res) => {
         try {

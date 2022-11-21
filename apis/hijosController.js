@@ -1,5 +1,5 @@
-const { hijos } = require('../database/models')
-const db = require('..//database/models')
+const { hijos } = require('../../database/models')
+const db = require('../../database/models')
 const alumnos = {
     list: (req, res) => {
         db.hijos
