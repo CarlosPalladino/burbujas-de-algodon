@@ -10,16 +10,16 @@ const mensajes = {
     created: async (req, res) => {
         try {
             await mensajes.create({
-                nombre: "andrea",
-                apellido: "gimenez",
-                email: "andrea@gmail.com",
-                mensaje: "hola me gustaria saber la la posibilidad de anotar a mi hijo a la tarde  y mi hija a la mañana. Gracias !"
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                email: req.body.email,
+                mensaje: req.body.mensaje
             })
         } catch (error) {
             console.log(error)
         }
     },
-deelete: async (req, res) => {
+    deelete: async (req, res) => {
         await mensajes.delete({ where: req.params.id })
     }
 

@@ -15,7 +15,7 @@ try {
         type: DataTypes.STRING
     },
     email: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING ,
         allowNull: false,
         unique: true
     },

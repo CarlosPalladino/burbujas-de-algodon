@@ -1,6 +1,5 @@
 const { padres } = require('../database/models/index')
 const { hijos } = require('../database/models/index')
-const {hashSync} = require('bcrypt');
 
 
 const db = require('../database/models')
@@ -28,17 +27,17 @@ const tutores = {
     },
 
     created: async (req, res) => {
-    let padresdb= await padres.create({ // cambiar a req.body
+    let padresdb= await padres.create({ 
             nombre:req.body.nombre,
             apellido: req.body.apellido,
             email: req.body.email,
             telefono: req.body.telefono,
-            password: hashSync(req.body.password,10),
+            // password: hashSync(req.body.password,10),
         })
     let hijosdb=await hijos.create({
-            nombre: "andrea",
-            apellido: "gimenez",
-            turno:"mañana"
+            nombre: req.body.nombre,
+            apellido:req.body.apellido,
+            turno:req.body.turno,
         })
         await padresdb.addHijos(hijosdb)
 

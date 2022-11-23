@@ -19,9 +19,6 @@ module.exports = {
         allowNull: false,
         unique: true
       },
-      password: {
-        type: DataTypes.STRING,
-      },
       telefono: {
         type: DataTypes.BIGINT
       }
