@@ -27,17 +27,17 @@ const tutores = {
     },
 
     created: async (req, res) => {
-    let padresdb= await padres.create({ 
-            nombre:req.body.nombre,
-            apellido: req.body.apellido,
+        console.log(req.body)
+        let padresdb = await padres.create({
+            nombre: req.body.nombre[0],
+            apellido: req.body.apellido[0],
             email: req.body.email,
             telefono: req.body.telefono,
-            // password: hashSync(req.body.password,10),
         })
-    let hijosdb=await hijos.create({
-            nombre: req.body.nombre,
-            apellido:req.body.apellido,
-            turno:req.body.turno,
+        let hijosdb = await hijos.create({
+            nombre: req.body.nombre[1],
+            apellido: req.body.apellido[1],
+            turno: req.body.turno,
         })
         await padresdb.addHijos(hijosdb)
 
@@ -47,7 +47,7 @@ const tutores = {
 
         await padres.delete({ where: req.params.id })
     }
-    
+
 }
 
 
