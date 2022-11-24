@@ -9,11 +9,24 @@ const tutores = {
         try {
             let padresdb = await padres.findAll(
                 { include: { all: true } })
+                let padres = await padresdb.map(padres=> {
+                    id= padres.id,
+                    nombre= padres.nombre,
+                    apellido= padres.apellido,
+                    email= padres.email
+                })
+                let hijos = await hijosdb.map(hijos=> {
+                    id= hijos.id,
+                    nombre= hijos.nombre,
+                    apellido= hijos.apellido
+                })
+
             return res.status(200).json(padresdb)
         }
         catch (error) {
             return res.status(500).json(error)
         }
+
     },
     findOne: async (req, res) => {
         try {
