@@ -9,4 +9,4 @@ app.listen(port,callback )
 app.use(express.urlencoded({extended:false}));
 app.use("/padres",require('./routes/padres.routes'))
 app.use( "/hijos", require ('./routes/hijos.routes'))
-app.use( "/mensaje", require ('./routes/hijos.routes'))
+app.use( "/mensajes", require ('./routes/mensajes.routes'))

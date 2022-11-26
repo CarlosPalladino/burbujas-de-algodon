@@ -1,9 +1,9 @@
     const Router = require('express')
     const router = Router()
-    const {created,lista,deelete} = require('../controllers/mensajesController')
+    const {created,list,deelete} = require('../controllers/mensajesController')
 
     router.post('/create',created);
-    router.get('/lista', lista);
-    router.delete('/eliminar',[],deelete)
+    router.get('/lista', list);
+    router.delete('/eliminar',deelete)
 
     module.exports = router

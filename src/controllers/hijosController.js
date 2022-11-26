@@ -1,21 +1,22 @@
 const { hijos } = require('../database/models')
 const db = require('..//database/models')
 const alumnos = {
-    list: (req, res) => {
-        db.hijos
-            .findAll(
-                { include: { all: true } }
+    list: async (req, res) => {
 
-            )
-            .then()(hijos => {
-                return res.json(hijos)
-            })
+        try {
+            let hijosdb = await hijos.findAll({ include: { all: true } })
+            return res.status(200).json(hijosdb)
+            
+        } catch (error) {
+            return res.status(500).json(error)
+        }
     },
+
     created: async (req, res) => {
         await hijos.create({
-            nombre: "franco",
-            apellido: "gimenez",
-            turno: "maniana"
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            turno: req.body.turno
         })
 
     },

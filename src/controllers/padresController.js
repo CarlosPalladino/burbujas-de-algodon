@@ -1,27 +1,22 @@
 const { padres } = require('../database/models/index')
 const { hijos } = require('../database/models/index')
-
-
 const db = require('../database/models')
 const tutores = {
-
     list: async (req, res) => {
         try {
-            let padresdb = await padres.findAll(
-                { include: { all: true } })
-                let padres = await padresdb.map(padres=> {
-                    id= padres.id,
-                    nombre= padres.nombre,
-                    apellido= padres.apellido,
-                    email= padres.email
-                })
-                let hijos = await hijosdb.map(hijos=> {
-                    id= hijos.id,
-                    nombre= hijos.nombre,
-                    apellido= hijos.apellido
-                })
-
-            return res.status(200).json(padresdb)
+            let padresdb = await padres.findAll({ include: { all: true } })
+            let padresDB = await padresdb.map(padres=>
+                Object ({
+                nombre:padres.nombre,
+                apellido:padres.apellido,
+                email :padres.email,
+                hijos: padres.hijos.map(hijos=> Object({
+                    nombre:hijos.nombre,
+                    apellido:hijos.apellido,
+                    turno:hijos.turno
+                }))
+            }))
+            return res.status(200).json(padresDB)
         }
         catch (error) {
             return res.status(500).json(error)
@@ -40,7 +35,6 @@ const tutores = {
     },
 
     created: async (req, res) => {
-        console.log(req.body)
         let padresdb = await padres.create({
             nombre: req.body.nombre[0],
             apellido: req.body.apellido[0],
