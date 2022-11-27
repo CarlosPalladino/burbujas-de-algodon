@@ -1,9 +1,10 @@
-const { mensaje } = require('../database/models/index')
+const { mensajes } = require('../database/models/index')
 const db = require('../database/models')
-const mensajes = {
+const { validationResult } = require('express-validator');
+const mensaje = {
     list: async (req, res) => {
         try {
-            let mensajesdb = await mensaje.findAll({ include: { all: true } })
+            let mensajesdb = await mensajes.findAll({ include: { all: true } })
             return res.status(200).json(mensajesdb)
         }
         catch (error) {
@@ -12,7 +13,7 @@ const mensajes = {
     },
     findOne: async (req, res) => {
         try {
-            let mensajesdb = await mensaje.findByPk(rq.params.id)
+            let mensajesdb = await mensajes.findByPk(rq.params.id)
             return res.status(200).json(mensajesdb)
         }
         catch (error) {
@@ -20,15 +21,24 @@ const mensajes = {
         }
     },
     created: async (req, res) => {
-     await mensaje.create({
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-            mensajes: req.body.mensajes
-        })
+        let validaciones = validationResult(req)
+        let errors = validaciones
+        if (errors && errors.length > 0) {
+             validaciones.mapped()
+        }
+        else {
+            await mensajes.create({
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                email: req.body.email,
+                mensajes: req.body.mensajes
+            })
+            return res.send('tu consulta fue realizada')
+        }
     },
+
     deelete: async (req, res) => {
-        await mensaje.delete({ where: req.params.id })
+        await mensajes.delete({ where: req.params.id })
     }
 }
-module.exports = mensajes
+module.exports = mensaje
