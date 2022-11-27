@@ -9,7 +9,7 @@ try {
         type: DataTypes.INTEGER
     },
     nombre: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     apellido: {
         type: DataTypes.STRING
@@ -27,10 +27,8 @@ try {
      
 } catch (error) {
   console.log(error)
-}
-     
+}    
   },
-
   async down (queryInterface, Sequelize) {
 
    await queryInterface.dropTable('mensajes');
