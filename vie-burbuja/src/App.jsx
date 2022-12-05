@@ -1,11 +1,19 @@
- import Home from './Home'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Inscripcion from "./Inscripcion";
+import Home from'./Home'
+// import Navbar from "./components/Navbar";
 import './App.css'
-function App() {
-  return ( <>
-    <Home name="carlos">
-<p> se esfuerza mucho</p>
-    </Home>
-  </> )
+
+export default function App() {
+  return (
+    <Routes>
+      <Route exact path="/Incripcion" element={<Inscripcion />} />
+      <Route exact path="/" element={<Home />} />
+      {/* <Route exact path="/Navbar" element={<Navbar />} /> */}
+
+    </Routes>
+  )
 }
 
-export default App
+

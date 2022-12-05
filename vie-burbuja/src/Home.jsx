@@ -1,10 +1,33 @@
-function Home (props){
-return (<> 
-<h1> 
-</h1>
- {props.children} 
-</>
-)
+import styled from 'styled-components'
+import Header from './includes/Header'
+import Footer from './includes/Footer'
 
+import { useState, UseEffect } from 'react'
+export default function Navbar() {
+
+  return (
+    <>
+      <Header/>
+    <NavContainer>
+      <h3>Nuestra insitucion</h3>
+      <h3>Deportes</h3>
+
+      
+      </NavContainer>
+      <Footer /> 
+    </>
+
+
+
+
+
+  )
 }
-export default Home
+
+const  NavContainer = styled.nav`
+  // margin-top:37rem;
+  text-align: center;
+  flex-wrap: wrap;
+
+
+`
