@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function BurguerButton(props) {
+ export default function BurguerButton(props) {
   return (
     <Burguer>
       <div  onClick={props.handleClick} 
@@ -15,7 +15,6 @@ function BurguerButton(props) {
   )
 }
 
-export default BurguerButton
 
 const Burguer = styled.div`
 .nav-icon-5{

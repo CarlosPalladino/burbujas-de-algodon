@@ -13,47 +13,31 @@ export default function Navbar() {
 {/* imagen de logo */}
 
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="#h">Intitucional</a>
+          <a onClick={handleClick} href="#h">Intitucion</a>
           <a onClick={handleClick} href="#h">Deportes</a>
           <a onClick={handleClick} href="#h">FaQ</a>
           <a onClick={handleClick} href="/incripcion">Incrcipcion</a>
           <a onClick={handleClick} href="#h">Consultas</a>
         </div>
         <div className='burguer'>
-          <BurguerButton clicked={clicked} handleClick={handleClick} />
+          <BurguerButton clicked={clicked} handleClick={handleClick}             />
         </div>
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       </NavContainer>
-
-      
     </>
-  
-  
-  
-  
-  
   )
 }
-
-
-
 const NavContainer = styled.nav`
-  h2{
-    color: white;
-    font-weight: 400;
-    span{
-      font-weight: bold;
-    }
-  }
+
   background-color: #27366B;
-  display: flex;
+  display: block;
   align-items: center;
-  flex-wrap: wrap;
   justify-content: space-between;
   a{
     color: white;
     text-decoration: none;
     margin-right: 1rem;
+    font-size: 1rem
   }
   .links{
     position: absolute;
@@ -74,6 +58,8 @@ const NavContainer = styled.nav`
       margin: 0;
       a{
         font-size: 1rem;
+        pading: 1rem;
+        justify-content: space-around;
         color: white;
         display: inline;
       }
@@ -87,13 +73,14 @@ const NavContainer = styled.nav`
     margin-left: auto;
     margin-right: auto;
     top: 23%;
+    
     left: 0;
     right: 0;
     text-align: center;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     a{
       font-size: 2rem;
-      margin-top: 22px;
+      margin-top: 12px;
       color: white;
     }
   }
