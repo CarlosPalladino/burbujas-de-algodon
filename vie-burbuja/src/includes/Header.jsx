@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import BurguerButton from '../components/BurguerButtom'
-import { useState,UseEffect } from 'react'
+import { useState, UseEffect } from 'react'
 export default function Navbar() {
 
   const [clicked, setClicked] = useState(false)
@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <>
       <NavContainer>
-{/* imagen de logo */}
+        {/* imagen de logo */}
 
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="#h">Intitucion</a>
@@ -20,10 +20,21 @@ export default function Navbar() {
           <a onClick={handleClick} href="#h">Consultas</a>
         </div>
         <div className='burguer'>
-          <BurguerButton clicked={clicked} handleClick={handleClick}             />
+          <BurguerButton clicked={clicked} handleClick={handleClick} />
         </div>
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       </NavContainer>
+      <Home >
+        <div className={`texts ${clicked ? 'active' : ''}`}>
+          <h3 >Nuestra institucion</h3>
+          <p>e</p>
+          <h3>Deportes</h3>
+          <p></p>
+          <h3>faQ</h3>
+
+
+        </div>
+      </Home>
     </>
   )
 }
@@ -89,9 +100,44 @@ const NavContainer = styled.nav`
       display: none;
     }
   }
+  .texts {
+    text-align: center;
+    margin-top:2px; 
+    h3{
+      margin-top:4px
+    }
+    }
+    @media(min-width: 768px){
+      display:none;   
+    }
+    .texts.active{
+      margin-top:27rem;
+    
+
+
+
+    }`
+
+const Home = styled.div
 `
+.texts {
+  text-align: center;
+  margin-top:2px; 
+  h3{
+    margin-top:4px
+  }
+  }
+  @media(min-width: 768px){
+    display:none;   
+  }
+  .texts.active{
+    margin-top:27rem;
+  
+  }
+`
+
 const BgDiv = styled.div`
-  background-color: #27366B;
+background-color: #27366B;
   position: absolute;
   top: -1000px;
   left: -1000px;

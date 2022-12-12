@@ -3,8 +3,9 @@ export default function Footer(){
 
 return (  <> 
     <NavContainer>  
-        {/* // Sede random   */}
-        {/* // numero random  */}
+<h3> calle falsa 123 </h3>
+
+<h3> +54 1224124</h3>
         {/* email random  */}
         </NavContainer>
     </>
