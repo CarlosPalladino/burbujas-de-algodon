@@ -26,11 +26,14 @@ export default function Navbar() {
       </NavContainer>
       <Home >
         <div className={`texts ${clicked ? 'active' : ''}`}>
-          <h3 >Nuestra institucion</h3>
-          <p>e</p>
+        <h3>Nuestra institucion</h3>
+          <p> Brindamos a nuestros alumnos una educación integral y formación de las pirmeras enseñanzas</p>
           <h3>Deportes</h3>
-          <p></p>
-          <h3>faQ</h3>
+          <p> Contamos con un ambiente cuidado para que en cada actividad a realizar 100% seguro </p>
+          
+          
+                       {/* href */}
+
 
 
         </div>
