@@ -21,20 +21,21 @@ export default function Navbar() {
           </p>
           {/* fondo de de colores aca  */}
         </div>
-        <div>
-          <BurguerButton clicked={clicked} handleClick={handleClick} />
-        </div>
+    
       
 
       </NavContainer>
-      <Footer/> 
+      {/* <Footer/>  */}
     </>
 
   )
 }
 
 const NavContainer = styled.nav`
-
+.objetivos{
+  text-align: center;
+  margin-top:1rem;
+}
 
 
 `
