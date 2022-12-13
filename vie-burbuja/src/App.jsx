@@ -1,17 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Inscripcion from "./Inscripcion";
+import Inscripcion from "./pages/Inscripcion";
+import Faq from "./pages/Faq";
 import Home from'./Home'
-// import Navbar from "./components/Navbar";
 import './App.css'
-
 export default function App() {
   return (
     <Routes>
+      <Route exact path="/Faq" element={<Faq/>} />
       <Route exact path="/Incripcion" element={<Inscripcion />} />
       <Route exact path="/" element={<Home />} />
-      {/* <Route exact path="/Navbar" element={<Navbar />} /> */}
-
     </Routes>
   )
 }

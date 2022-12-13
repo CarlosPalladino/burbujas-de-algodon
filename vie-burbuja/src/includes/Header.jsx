@@ -11,10 +11,10 @@ export default function Navbar() {
       <NavContainer>
         <img src="/burbuja.svg" alt="" className='logo' /> 
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="#h">Intitucion</a>
-          <a onClick={handleClick} href="#h">Deportes</a>
-          <a onClick={handleClick} href="#h">FaQ</a>
-          <a onClick={handleClick} href="/incripcion">Incrcipcion</a>
+          {/* <a onClick={handleClick} href="#h">Intitucion</a>
+          <a onClick={handleClick} href="#h">Deportes</a> */}
+          <a onClick={handleClick} href="./pages/Faq">FaQ</a>
+          <a onClick={handleClick} href="./pages/incripcion">Incrcipcion</a>
           <a onClick={handleClick} href="#h">Consultas</a>
         </div>
         <div className='burguer'>
