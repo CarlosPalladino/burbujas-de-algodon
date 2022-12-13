@@ -9,12 +9,12 @@ export default function Navbar() {
   return (
     <>
       <NavContainer>
-        <img src="/burbuja.svg" alt="" className='logo' /> 
+        < img src="/burbuja.svg" alt="" className='logo' href="/" /> 
         <div className={`links ${clicked ? 'active' : ''}`}>
-          {/* <a onClick={handleClick} href="#h">Intitucion</a>
-          <a onClick={handleClick} href="#h">Deportes</a> */}
+           <a onClick={handleClick} href="#h">Intitucion</a>
+          <a onClick={handleClick} href="#h">Deportes</a> 
           <a onClick={handleClick} href="./pages/Faq">FaQ</a>
-          <a onClick={handleClick} href="./pages/incripcion">Incrcipcion</a>
+          <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
           <a onClick={handleClick} href="#h">Consultas</a>
         </div>
         <div className='burguer'>

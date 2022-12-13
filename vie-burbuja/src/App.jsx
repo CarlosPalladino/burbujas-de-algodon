@@ -7,8 +7,8 @@ import './App.css'
 export default function App() {
   return (
     <Routes>
-      <Route exact path="/Faq" element={<Faq/>} />
-      <Route exact path="/Incripcion" element={<Inscripcion />} />
+      <Route exact path="/pages/Faq" element={<Faq/>} />
+      <Route exact path="/pages/Incripcion" element={<Inscripcion />} />
       <Route exact path="/" element={<Home />} />
     </Routes>
   )
