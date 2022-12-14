@@ -32,7 +32,7 @@ export default function Navbar() {
           <p>
             Ofrecer una educación formal, incorporada a la enseñanza oficial, que los forme como sujetos competentes en donde se favorezca el desarrollo de sus habilidades para acceder a mejores condiciones de vida,
           </p>
-          
+
           {/* href */}
         </div>
       </Home>
