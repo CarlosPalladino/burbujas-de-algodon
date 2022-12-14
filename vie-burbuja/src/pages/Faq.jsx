@@ -16,7 +16,7 @@ export default function Navbar(props) {
         </div>
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="/">Inicio</a>
-          <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
+          <a onClick={handleClick} href="./Incripcion">Incrcipcion</a>
           <a onClick={handleClick} href="#h">Consultas</a>
 
         </div>
