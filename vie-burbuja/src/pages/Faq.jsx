@@ -18,14 +18,22 @@ export default function Navbar(props) {
           <a onClick={handleClick} href="/">Inicio</a>
           <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
           <a onClick={handleClick} href="#h">Consultas</a>
-
         </div>
+        <div className={`texts ${clicked ? 'active' : ''}`}>
+        <h3>Horarios</h3>
+        <p>de Lunes a Viernes de 8 a 12 hs </p>
+        <p>de Lunes a Viernes de 13 a 17 hs </p>
+        <h3>¿Qué debo presentar?</h3>
+        <ul>
+          <li>Certificado de vacunas</li>
+          <li>documentos de madre/padre/tutor</li>
+          </ul>
 
-
+      </div>
+       
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       </NavContainer>
-
-      <h3> probando que anda</h3>
+  
       {/* <Footer /> */}
     </>
 
@@ -92,7 +100,22 @@ const NavContainer = styled.nav`
 }
  .href{
   background-color: white;
- } `
+
+} 
+.texts {
+  text-align: center;
+  margin-top:2px; 
+  h3{
+    margin-top:4px
+  }
+  }
+  @media(min-width: 768px){
+    display:none;   
+  }
+  .texts.active{
+  visibility: hidden;
+    } 
+ `
 const BgDiv = styled.div`
 background-color: #27366B;
   position: absolute;
@@ -107,6 +130,5 @@ background-color: #27366B;
     left: 0;
     width: 100%;
     height: 100%;
-    // border-radius: 0 0 30px 30px;
   }
   `

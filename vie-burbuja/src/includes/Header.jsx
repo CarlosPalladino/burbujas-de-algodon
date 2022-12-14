@@ -119,7 +119,8 @@ const Home = styled.div`
   }
   .texts.active{
   visibility: hidden;
-    }`
+    }
+    `
 const BgDiv = styled.div`
 background-color: #27366B;
   position: absolute;
