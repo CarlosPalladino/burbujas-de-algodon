@@ -9,10 +9,10 @@ export default function Navbar() {
   return (
     <>
       <NavContainer>
-        < img src="/burbuja.svg" alt="" className='logo' href="/" /> 
+        < img src="/burbuja.svg" alt="" className='logo' href="/" />
         <div className={`links ${clicked ? 'active' : ''}`}>
-           <a onClick={handleClick} href="#h">Intitucion</a>
-          <a onClick={handleClick} href="#h">Deportes</a> 
+          <a onClick={handleClick} href="/">Inicio</a>
+          {/* <a onClick={handleClick} href="#h">Deportes</a> */}
           <a onClick={handleClick} href="./pages/Faq">FaQ</a>
           <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
           <a onClick={handleClick} href="#h">Consultas</a>
@@ -28,6 +28,11 @@ export default function Navbar() {
           <p> Brindamos a nuestros alumnos una educación integral y formación de las pirmeras enseñanzas</p>
           <h3>Deportes</h3>
           <p> Contamos con un ambiente cuidado para que en cada actividad a realizar 100% seguro </p>
+          <h3> Nuestros objetivos</h3>
+          <p>
+            Ofrecer una educación formal, incorporada a la enseñanza oficial, que los forme como sujetos competentes en donde se favorezca el desarrollo de sus habilidades para acceder a mejores condiciones de vida,
+          </p>
+          
           {/* href */}
         </div>
       </Home>
@@ -36,7 +41,6 @@ export default function Navbar() {
 }
 const NavContainer = styled.nav`
   background-color: #27366B;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,13 +87,13 @@ const NavContainer = styled.nav`
   .links.active{
     width: 100%;
     display: block;
+    margin:10px;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
     top: 23%;
-    
-    left: 0;
-    right: 0;
+    left: 10px;
+    right: 10px;
     text-align: center;
     a{
       font-size: 2rem;
@@ -114,8 +118,8 @@ const Home = styled.div`
     display:none;   
   }
   .texts.active{
-    margin-top:31rem;
-  }`
+  visibility: hidden;
+    }`
 const BgDiv = styled.div`
 background-color: #27366B;
   position: absolute;
@@ -129,7 +133,7 @@ background-color: #27366B;
     top: 0;
     left: 0;
     width: 100%;
-    height: 60%;
-    border-radius: 0 0 30px 30px;
+    height: 100%;
+    // border-radius: 0 0 30px 30px;
   }
 `
