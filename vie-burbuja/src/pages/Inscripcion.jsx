@@ -1,9 +1,7 @@
 import React from 'react'
 import BurguerButton from '../components/BurguerButtom'
 import { useState, UseEffect } from 'react'
-import  Header  from '../includes/Header'
 import styled from 'styled-components'
-
 export default function Incripcion() {
     const [clicked, setClicked] = useState(false)
     const handleClick = () => {
@@ -13,85 +11,95 @@ export default function Incripcion() {
     return (
         <>
             <NavContainer>
-        <div className={`header ${clicked ? 'active' : ''}`}>
-          <img src="/burbuja.svg" alt="" className='logo' href="/" />
-          <BurguerButton clicked={clicked} handleClick={handleClick} />
-        </div>
-        <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="/">Inicio</a>
-          <a onClick={handleClick} href="./Faq">Faq</a>
-          <a onClick={handleClick} href="#h">Consultas</a>
+                <div className={`header ${clicked ? 'active' : ''}`}>
+                    <img src="/burbuja.svg" alt="" className='logo' href="/" />
+                    <BurguerButton clicked={clicked} handleClick={handleClick} />
+                </div>
+                <div className={`links ${clicked ? 'active' : ''}`}>
+                    <a onClick={handleClick} href="/">Inicio</a>
+                    <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
+                    <a onClick={handleClick} href="#h">Consultas</a>
+                </div>
+                <div className={`forms ${clicked ? 'active' : ''}`}>
+                    <input type="text" placeholder='nombre' value="nombre" />
+                    <input type="text" placeholder='apellido' value="apellido" />
+                    <input type="text" placeholder='Email' value="email" />
+                    <h3>Hijos</h3>
+                    <input type="text" placeholder='nombre' value="nombre" />
+                    <input type="text" placeholder='apellido' value="apellido" />
+                    <input type="text" placeholder='turno' value="turno" />
+                    <button type="reset">Cancelar</button>
+                    <button type="submit" value="Submit">Enviar</button>
+                </div>
+                <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
 
-        </div>
-
-
-        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
-      </NavContainer>
+            </NavContainer>
         </>
     )
 }
 const NavContainer = styled.nav`
 .header {
-  background-color: #27366B;
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
-
-}
-.links {
-  position: absolute;
-  top: -700px;
-  left: -2000px;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  transition: all .5s ease;
-  a{
-    color: white;
-    font-size: 2rem;
-    display: block;
-    text-decoration: none;
-
+    background-color: #27366B;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+  
   }
-  @media(min-width: 768px){
-    position: initial;
-    margin: 0;
+  .links {
+    position: absolute;
+    top: -700px;
+    left: -2000px;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    transition: all .5s ease;
     a{
-      font-size: 1rem;
-      pading: 1rem;
-      justify-content: space-around;
       color: white;
-      display: inline;
+      font-size: 2rem;
+      display: block;
+      text-decoration: none;
+  
     }
+    @media(min-width: 768px){
+      position: initial;
+      margin: 0;
+      a{
+        font-size: 1rem;
+        pading: 1rem;
+        justify-content: space-around;
+        color: white;
+        display: inline;
+      }
+      display: block;
+    }
+  }
+  .links.active{
+    width: 100%;
     display: block;
+    margin:10px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 23%;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+    a{
+      font-size: 2rem;
+      margin-top: 12px;
+      color: white;
+    }
   }
-}
-.links.active{
-  width: 100%;
-  display: block;
-  margin:10px;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  top: 23%;
-  left: 10px;
-  right: 10px;
-  text-align: center;
-  a{
-    font-size: 2rem;
-    margin-top: 12px;
-    color: white;
-  }
-}
-.logo{
- width:50%;
- margin: -12px 21px 12px -45px
+  .logo{
+   width:50%;
+   margin: -12px 21px 12px -45px;
 
-}
- .href{
-  background-color: white;
- } `
+   .forms{
+
+   }
+  
+`
 const BgDiv = styled.div`
 background-color: #27366B;
   position: absolute;
@@ -106,6 +114,5 @@ background-color: #27366B;
     left: 0;
     width: 100%;
     height: 100%;
-    // border-radius: 0 0 30px 30px;
   }
   `

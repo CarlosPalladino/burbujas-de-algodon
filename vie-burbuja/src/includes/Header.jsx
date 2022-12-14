@@ -15,7 +15,7 @@ export default function Navbar() {
           {/* <a onClick={handleClick} href="#h">Deportes</a> */}
           <a onClick={handleClick} href="./pages/Faq">FaQ</a>
           <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
-          <a onClick={handleClick} href="#h">Consultas</a>
+          <a onClick={handleClick} href="./pages/Consultas">Consultas</a>
         </div>
         <div className='burguer'>
           <BurguerButton clicked={clicked} handleClick={handleClick} />
@@ -119,7 +119,8 @@ const Home = styled.div`
   }
   .texts.active{
   visibility: hidden;
-    }`
+    }
+    `
 const BgDiv = styled.div`
 background-color: #27366B;
   position: absolute;
