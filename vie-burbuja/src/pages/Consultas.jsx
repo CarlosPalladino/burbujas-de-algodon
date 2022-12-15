@@ -95,8 +95,11 @@ const NavContainer = styled.nav`
        margin: -12px 21px 12px -45px;
     
        .forms{
-    
-       }
+        background-color: #27366B;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+             }
       
     `
     const BgDiv = styled.div`

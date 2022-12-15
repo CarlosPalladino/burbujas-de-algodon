@@ -3,47 +3,57 @@ import BurguerButton from '../components/BurguerButtom'
 import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
 export default function Incripcion() {
-    const [clicked, setClicked] = useState(false)
-    const handleClick = () => {
-        setClicked(!clicked)
+  const [clicked, setClicked] = useState(false)
+  const handleClick = () => {
+    setClicked(!clicked)
 
-    }
-    return (
-        <>
-            <NavContainer>
-                <div className={`header ${clicked ? 'active' : ''}`}>
-                    <img src="/burbuja.svg" alt="" className='logo' href="/" />
-                    <BurguerButton clicked={clicked} handleClick={handleClick} />
-                </div>
-                <div className={`links ${clicked ? 'active' : ''}`}>
-                    <a onClick={handleClick} href="/">Inicio</a>
-                    <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
-                    <a onClick={handleClick} href="#h">Consultas</a>
-                </div>
-                <div className={`forms ${clicked ? 'active' : ''}`}>
-                    <input type="text" placeholder='nombre' value="nombre" />
-                    <input type="text" placeholder='apellido' value="apellido" />
-                    <input type="text" placeholder='Email' value="email" />
-                    <h3>Hijos</h3>
-                    <input type="text" placeholder='nombre' value="nombre" />
-                    <input type="text" placeholder='apellido' value="apellido" />
-                    <input type="text" placeholder='turno' value="turno" />
-                    <button type="reset">Cancelar</button>
-                    <button type="submit" value="Submit">Enviar</button>
-                </div>
-                <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+  }
+  return (
+    <>
+      <NavContainer>
+        <div className={`header ${clicked ? 'active' : ''}`}>
+          <img src="/burbuja.svg" alt="" className='logo' href="/" />
+          <BurguerButton clicked={clicked} handleClick={handleClick} />
+        </div>
+        <div className={`links ${clicked ? 'active' : ''}`}>
+          <a onClick={handleClick} href="/">Inicio</a>
+          <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
+          <a onClick={handleClick} href="#h">Consultas</a>
+        </div>
+        <div className={`form ${clicked ? 'active' : ''}`}>
+          <label className="names">Nombre</label>
+          <input type="text" id="relleno"     value="nombre" />
+          <label className="names">Apellido</label>
+          <input type="text" id="relleno" value="apellido" />
+          <label className="names">Email</label>
+          <input type="text" id="relleno" value="email" />
 
-            </NavContainer>
-        </>
-    )
+          <h3>Hijos</h3>
+
+          <label className="names">Nombre</label>
+          <input type="text"  id="relleno" value="nombre" />
+          <label className="names">Apellido</label>
+          <input type="text"  id="relleno" value="apellido" />
+          <label className="names">turno</label>
+          <input type="text" id="relleno" value="turno" />
+          <section className="button">
+            <button type="reset">Cancelar</button>
+            <button type="submit" value="Submit">Enviar</button>
+          </section>
+        </div>
+        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+
+      </NavContainer>
+    </>
+  )
 }
 const NavContainer = styled.nav`
+
 .header {
     background-color: #27366B;
     display:flex;
     align-items: center;
     justify-content: space-between;
-  
   }
   .links {
     position: absolute;
@@ -59,7 +69,6 @@ const NavContainer = styled.nav`
       font-size: 2rem;
       display: block;
       text-decoration: none;
-  
     }
     @media(min-width: 768px){
       position: initial;
@@ -88,17 +97,39 @@ const NavContainer = styled.nav`
     a{
       font-size: 2rem;
       margin-top: 12px;
-      color: white;
+      color: white;ÑÑ
     }
   }
   .logo{
    width:50%;
    margin: -12px 21px 12px -45px;
-
-   .forms{
-
-   }
-  
+  }
+   .form{
+    background-color: #27366B;
+    align-items: baseline;
+    display:flex;
+    flex-direction: column;
+    border-radius:44px;
+    padding: 10px;
+    width: 89%;
+    margin: auto;
+    margin-top: 50px;
+}
+.form.active{
+  visibility:hidden;
+}
+    h3{
+      color: white;
+      margin:4px;
+    }   }
+ #relleno {
+  margin:10px;
+  margin-top:2px;
+  border-radius:10px;
+ }
+ .names{
+  color: white;
+ }          
 `
 const BgDiv = styled.div`
 background-color: #27366B;
