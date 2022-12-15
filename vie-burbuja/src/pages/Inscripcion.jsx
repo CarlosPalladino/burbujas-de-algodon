@@ -22,20 +22,25 @@ export default function Incripcion() {
         </div>
         <div className={`form ${clicked ? 'active' : ''}`}>
           <label className="names">Nombre</label>
-          <input type="text" id="relleno"     value="nombre" />
+          <input type="text" id="relleno"/>
           <label className="names">Apellido</label>
-          <input type="text" id="relleno" value="apellido" />
+          <input type="text" id="relleno"/>
           <label className="names">Email</label>
-          <input type="text" id="relleno" value="email" />
+          <input type="text" id="relleno"  />
 
           <h3>Hijos</h3>
 
           <label className="names">Nombre</label>
-          <input type="text"  id="relleno" value="nombre" />
+          <input type="text"  id="relleno"  />
           <label className="names">Apellido</label>
-          <input type="text"  id="relleno" value="apellido" />
+          <input type="text"  id="relleno"  />
           <label className="names">turno</label>
-          <input type="text" id="relleno" value="turno" />
+          <select name ="turno"id="turno">
+          <option value="mañana">mañana</option>
+          <option value="mañana">tarde</option>
+
+          </select>
+
           <section className="button">
             <button type="reset">Cancelar</button>
             <button type="submit" value="Submit">Enviar</button>
@@ -126,6 +131,12 @@ const NavContainer = styled.nav`
   margin:10px;
   margin-top:2px;
   border-radius:10px;
+ }
+ #turno{
+  width:65%;
+  margin: 10px;
+  margin-top: 2px;
+  border-radius: 10px;
  }
  .names{
   color: white;
