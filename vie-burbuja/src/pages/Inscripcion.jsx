@@ -41,10 +41,10 @@ export default function Incripcion() {
 
           </select>
 
-          <section className="button">
+          <div className="buton">
             <button type="reset">Cancelar</button>
             <button type="submit" value="Submit">Enviar</button>
-          </section>
+          </div>
         </div>
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
 
@@ -140,7 +140,11 @@ const NavContainer = styled.nav`
  }
  .names{
   color: white;
- }          
+ }
+ .buton{
+  display:flex;
+  justify-content:space-around;
+ }    
 `
 const BgDiv = styled.div`
 background-color: #27366B;

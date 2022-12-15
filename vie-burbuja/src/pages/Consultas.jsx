@@ -3,36 +3,43 @@ import BurguerButton from '../components/BurguerButtom'
 import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
 export default function Incripcion() {
-    const [clicked, setClicked] = useState(false)
-    const handleClick = () => {
-        setClicked(!clicked)
+  const [clicked, setClicked] = useState(false)
+  const handleClick = () => {
+    setClicked(!clicked)
 
-    }
-    return (
-        <>
-            <NavContainer>
-                <div className={`header ${clicked ? 'active' : ''}`}>
-                    <img src="/burbuja.svg" alt="" className='logo' href="/" />
-                    <BurguerButton clicked={clicked} handleClick={handleClick} />
-                </div>
-                <div className={`links ${clicked ? 'active' : ''}`}>
-                    <a onClick={handleClick} href="/">Inicio</a>
-                    <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
-                    <a onClick={handleClick} href="#h">Consultas</a>
-                </div>
-                <div className={`forms ${clicked ? 'active' : ''}`}>
-                    <input type="text" placeholder='nombre' value="nombre" />
-                    <input type="text" placeholder='apellido' value="apellido" />
-                    <input type="text" placeholder='Email' value="email" />
-                    <button type="reset">Cancelar</button>
-                    <button type="submit" value="Submit">Enviar</button>
-                    </div>
-                    <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+  }
+  return (
+    <>
+      <NavContainer>
+        <div className={`header ${clicked ? 'active' : ''}`}>
+          <img src="/burbuja.svg" alt="" className='logo' href="/" />
+          <BurguerButton clicked={clicked} handleClick={handleClick} />
+        </div>
+        <div className={`links ${clicked ? 'active' : ''}`}>
+          <a onClick={handleClick} href="/">Inicio</a>
+          <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
+          <a onClick={handleClick} href="#h">Consultas</a>
+        </div>
+        <div className={`forms ${clicked ? 'active' : ''}`}>
+          <label className="names">Nombre</label>
+          <input type="text"  id="relleno" />
+          <label className="names">Apellido</label>
+          <input type="text" id="relleno" />
+          <label className="names">Email</label>
+          <input type="text" id="relleno" />
+          <label className='names'>Mensaje</label>
+          <textarea className='' cols="30" rows="8"></textarea>
+          <section className='button'>
+            <button type="reset">Cancelar</button>
+            <button type="submit" value="Submit">Enviar</button>
+          </section>
+        </div>
+        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
 
-                    </NavContainer>
-                </> 
-                )
-    }
+      </NavContainer>
+    </>
+  )
+}
 const NavContainer = styled.nav`
     .header {
         background-color: #27366B;
@@ -87,22 +94,38 @@ const NavContainer = styled.nav`
           color: white;
         }
       }
-      forms{
-        
-      }
+      
       .logo{
        width:50%;
        margin: -12px 21px 12px -45px;
-    
+      }
        .forms{
         background-color: #27366B;
+        align-items: baseline;
         display:flex;
-        align-items: center;
-        justify-content: space-between;
-             }
+        flex-direction: column;
+        border-radius:44px;
+        padding: 10px;
+        width: 89%;
+        margin: auto;
+        margin-top: 50px;
+    }
+    .names {
+      color: white ;
+
+    }
+    #relleno {
+      margin:10px;
+      margin-top:2px;
+      border-radius:10px;
+     }
+    .form.active{
+      visibility:hidden;
+    }
+        
       
     `
-    const BgDiv = styled.div`
+const BgDiv = styled.div`
     background-color: #27366B;
       position: absolute;
       top: -1000px;
@@ -118,4 +141,3 @@ const NavContainer = styled.nav`
         height: 100%;
       }
       `
-                
