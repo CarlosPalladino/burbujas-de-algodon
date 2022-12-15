@@ -129,6 +129,8 @@ const NavContainer = styled.nav`
     }   }
  #relleno {
   margin:10px;
+  margin:15px;
+  padding:3px;
   margin-top:2px;
   border-radius:10px;
  }
@@ -141,10 +143,13 @@ const NavContainer = styled.nav`
  .names{
   color: white;
  }
- .buton{
-  display:flex;
-  justify-content:space-around;
- }    
+ button{
+  padding: 10px;
+  color:white;
+  background-color: #27366B;
+  border:none;
+margin:1.5rem; 
+  }   
 `
 const BgDiv = styled.div`
 background-color: #27366B;

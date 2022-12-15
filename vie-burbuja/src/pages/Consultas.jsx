@@ -22,7 +22,7 @@ export default function Incripcion() {
         </div>
         <div className={`forms ${clicked ? 'active' : ''}`}>
           <label className="names">Nombre</label>
-          <input type="text"  id="relleno" />
+          <input type="text" id="relleno" />
           <label className="names">Apellido</label>
           <input type="text" id="relleno" />
           <label className="names">Email</label>
@@ -74,7 +74,6 @@ const NavContainer = styled.nav`
             color: white;
             display: inline;
           }
-          display: block;
         }
       }
       .links.active{
@@ -106,23 +105,29 @@ const NavContainer = styled.nav`
         flex-direction: column;
         border-radius:44px;
         padding: 10px;
-        width: 89%;
+        width: 90%;
         margin: auto;
         margin-top: 50px;
     }
     .names {
       color: white ;
-
     }
     #relleno {
-      margin:10px;
+      margin:15px;
+      padding:3px;
       margin-top:2px;
       border-radius:10px;
      }
-    .form.active{
+    .forms.active{
       visibility:hidden;
     }
-        
+button{
+  padding: 10px;
+  color:white;
+  background-color: #27366B;
+  border:none;
+margin:1.5rem; 
+  }     
       
     `
 const BgDiv = styled.div`
