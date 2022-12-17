@@ -17,23 +17,29 @@ export default function Incripcion() {
         </div>
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="/">Inicio</a>
-          <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
-          <a onClick={handleClick} href="#h">Consultas</a>
+          <a onClick={handleClick} href="./Consultas">Consultas</a>
+          <a onClick={handleClick} href="./Faq">Faq</a>
         </div>
         <div className={`form ${clicked ? 'active' : ''}`}>
           <label className="names">Nombre</label>
           <input type="text" id="relleno"/>
+          <p id="nombreError" class="msg-error errors"></p>
           <label className="names">Apellido</label>
+          <p id="apellidoError" class="msg-error errors"></p>
           <input type="text" id="relleno"/>
           <label className="names">Email</label>
+          <p id="emailError" class="msg-error errors"></p>
           <input type="text" id="relleno"  />
 
           <h3>Hijos</h3>
 
           <label className="names">Nombre</label>
           <input type="text"  id="relleno"  />
+          <p id="nombreError" class="msg-error errors"></p>
+
           <label className="names">Apellido</label>
           <input type="text"  id="relleno"  />
+          <p id="apellidoError" class="msg-error errors"></p>
           <label className="names">turno</label>
           <select name ="turno"id="turno">
           <option value="mañana">mañana</option>

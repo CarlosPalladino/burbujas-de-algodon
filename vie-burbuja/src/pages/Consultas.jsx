@@ -2,6 +2,7 @@ import React from 'react'
 import BurguerButton from '../components/BurguerButtom'
 import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
+// traer script de validacion 
 export default function Incripcion() {
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
@@ -23,10 +24,13 @@ export default function Incripcion() {
         <div className={`forms ${clicked ? 'active' : ''}`}>
           <label className="names">Nombre</label>
           <input type="text" id="relleno" />
+          <p id="nombreError" class="msg-error errors"></p>
           <label className="names">Apellido</label>
           <input type="text" id="relleno" />
+          <p id="apellidoError" class="msg-error errors"></p>
           <label className="names">Email</label>
           <input type="text" id="relleno" />
+          <p id="emailError" class="msg-error errors"></p>
           <label className='names'>Mensaje</label>
           <textarea className='' cols="30" rows="8"></textarea>
           <section className='button'>
