@@ -46,10 +46,7 @@ const NavContainer = styled.nav`
   justify-content: space-between;
 .logo{
   width: 50%;
-  margin: -12px 21px 12px -45px
-
-  ;
-  
+  margin: -12px 21px 12px -45px;
 }
   a{
     color: white;

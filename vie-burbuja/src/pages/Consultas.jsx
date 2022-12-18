@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../includes/Footer'
 import BurguerButton from '../components/BurguerButtom'
 import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
@@ -24,15 +25,15 @@ export default function Incripcion() {
         <div className={`forms ${clicked ? 'active' : ''}`}>
           <label className="names">Nombre</label>
           <input type="text" id="relleno" />
-          <p id="nombreError" class="msg-error errors"></p>
+          <p id="nombreError" className="msg-error errors"></p>
           <label className="names">Apellido</label>
           <input type="text" id="relleno" />
-          <p id="apellidoError" class="msg-error errors"></p>
+          <p id="apellidoError" className="msg-error errors"></p>
           <label className="names">Email</label>
           <input type="text" id="relleno" />
-          <p id="emailError" class="msg-error errors"></p>
+          <p id="emailError" className="msg-error errors"></p>
           <label className='names'>Mensaje</label>
-          <textarea className='' cols="30" rows="8"></textarea>
+          <textarea id='relleno' cols="30" rows="8" borde-radius="10px" ></textarea>
           <section className='button'>
             <button type="reset">Cancelar</button>
             <button type="submit" value="Submit">Enviar</button>
@@ -41,6 +42,7 @@ export default function Incripcion() {
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
 
       </NavContainer>
+      <Footer/>
     </>
   )
 }
@@ -97,7 +99,6 @@ const NavContainer = styled.nav`
           color: white;
         }
       }
-      
       .logo{
        width:50%;
        margin: -12px 21px 12px -45px;
@@ -122,7 +123,7 @@ const NavContainer = styled.nav`
       margin-top:2px;
       border-radius:10px;
      }
-    .forms.active{
+     .forms.active{
       visibility:hidden;
     }
 button{

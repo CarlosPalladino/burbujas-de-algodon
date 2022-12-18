@@ -23,12 +23,12 @@ export default function Incripcion() {
         <div className={`form ${clicked ? 'active' : ''}`}>
           <label className="names">Nombre</label>
           <input type="text" id="relleno"/>
-          <p id="nombreError" class="msg-error errors"></p>
+          <p id="nombreError" className="msg-error errors"></p>
           <label className="names">Apellido</label>
-          <p id="apellidoError" class="msg-error errors"></p>
+          <p id="apellidoError" className="msg-error errors"></p>
           <input type="text" id="relleno"/>
           <label className="names">Email</label>
-          <p id="emailError" class="msg-error errors"></p>
+          <p id="emailError" className="msg-error errors"></p>
           <input type="text" id="relleno"  />
 
           <h3>Hijos</h3>
