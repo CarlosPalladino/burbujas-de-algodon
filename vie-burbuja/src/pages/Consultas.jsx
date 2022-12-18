@@ -19,8 +19,8 @@ export default function Incripcion() {
         </div>
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="/">Inicio</a>
-          <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
-          <a onClick={handleClick} href="#h">Consultas</a>
+          <a onClick={handleClick} href="./Incripcion">Incrcipcion</a>
+          <a onClick={handleClick} href="./Faq">Preguntas</a>
         </div>
         <div className={`forms ${clicked ? 'active' : ''}`}>
           <label className="names">Nombre</label>

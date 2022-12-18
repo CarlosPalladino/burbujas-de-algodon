@@ -1,11 +1,9 @@
 import styled from "styled-components"
 export default function Footer() {
-
     return (<>
         <NavContainer>
             <h3> calle falsa 123 </h3><i class="fa-solid fa-house icon" ></i>
-            <h3> +54 1224124</h3>       <i class="fa-solid fa-phone icon "></i>
-
+            <h3> +54 1224124</h3><i class="fa-solid fa-phone icon "></i>
             {/* email random  */}
             < img src="/burbuja.svg" alt="" className='logo' href="/" />
         </NavContainer>
@@ -15,7 +13,8 @@ export default function Footer() {
 const NavContainer = styled.nav
     `
   background-color: #27366B;
-margin-top:20px;
+  font-family: Montserrat;
+    margin-top:20px;
     display:flex;
     flex-direction: column;
     align-items: center;

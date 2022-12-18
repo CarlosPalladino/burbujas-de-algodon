@@ -12,7 +12,6 @@ export default function Navbar() {
         < img src="/burbuja.svg" alt="" className='logo' href="/" />
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="/">Inicio</a>
-          {/* <a onClick={handleClick} href="#h">Deportes</a> */}
           <a onClick={handleClick} href="./pages/Faq">FaQ</a>
           <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
           <a onClick={handleClick} href="./pages/Consultas">Consultas</a>
@@ -24,11 +23,15 @@ export default function Navbar() {
       </NavContainer>
       <Home >
         <div className={`texts ${clicked ? 'active' : ''}`}>
-          <h3>Nuestra institucion</h3>
+          <i className="fa-solid fa-house icon"></i>
+          <h2>Nuestra institucion</h2>
           <p> Brindamos a nuestros alumnos una educación integral y formación de las pirmeras enseñanzas</p>
-          <h3>Deportes</h3>
+
+          <h2>Deportes</h2>
+
           <p> Contamos con un ambiente cuidado para que en cada actividad a realizar 100% seguro </p>
-          <h3> Nuestros objetivos</h3>
+          <i className="fa-solid fa-graduation-cap icon"></i>
+          <h2> Nuestros objetivos</h2>
           <p>
             Ofrecer una educación formal, incorporada a la enseñanza oficial, que los forme como sujetos competentes en donde se favorezca el desarrollo de sus habilidades para acceder a mejores condiciones de vida,
           </p>
@@ -44,6 +47,7 @@ const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 .logo{
   width: 50%;
   margin: -12px 21px 12px -45px;
@@ -68,6 +72,7 @@ const NavContainer = styled.nav`
       font-size: 2rem;
       display: block;
     }
+
     @media(min-width: 768px){
       position: initial;
       margin: 0;
@@ -106,11 +111,25 @@ const NavContainer = styled.nav`
 const Home = styled.div`
 .texts {
   text-align: center;
-  margin-top:2px; 
-  h3{
-    margin-top:4px
+  background-color:#27366B;
+  h2{
+    margin-top:2px;
+    color:white;
+      font-family:poppins;
+  }
+  p{
+  font-size: 16px;
+    font-family: Montserrat;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.7px;
   }
   }
+  .icon{
+    color: white;
+    font-size:25px;
+    margin:6px;
+    }
   @media(min-width: 768px){
     display:none;   
   }
