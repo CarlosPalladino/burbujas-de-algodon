@@ -5,13 +5,29 @@ import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
 import axios from "axios";
 
-
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'  // de donde sale esto
-const MySwal = withReactContent(Swal)                      // de donde sale esto
+//  import withReactContent from 'sweetalert2-react-content'  // de donde sale esto
+//  const MySwal = withReactContent(Swal)                      // de donde sale esto
 
 let consultasApiURl = "http://localhost:4000/mensajes/create"
 
+const mjs = function (e){
+
+
+  e.preventDefault(
+    
+  )
+
+  Swal.fire({
+    title: 'Error!',
+    text: 'next ',
+    icon: 'warning',
+    confirmButtonText: 'Cool'
+  })
+  // let result = await axios.post(consultasApiURl, {
+
+  // })
+}
 export default function Incripcion() {
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
@@ -31,26 +47,28 @@ export default function Incripcion() {
           <a onClick={handleClick} href="./Faq">Preguntas</a>
         </div>
         <div className={`forms ${clicked ? 'active' : ''}`}>
-          <label className="names">Nombre</label>
-          <input type="text" id="relleno" />
-          <p id="nombreError" className="msg-error errors"></p>
-          <label className="names">Apellido</label>
-          <input type="text" id="relleno" />
-          <p id="apellidoError" className="msg-error errors"></p>
-          <label className="names">Email</label>
-          <input type="text" id="relleno" />
-          <p id="emailError" className="msg-error errors"></p>
-          <label className='names'>Mensaje</label>
-          <textarea id='relleno' cols="30" rows="8" borde-radius="10px" ></textarea>
-          <section className='button'>
-            <button type="reset">Cancelar</button>
-            <button type="submit" value="Submit">Enviar</button>
-          </section>
+          <form onSubmit={mjs}>
+            <label className="names">Nombre</label>
+            <input type="text" id="relleno" />
+            <p id="nombreError" className="msg-error errors"></p>
+            <label className="names">Apellido</label>
+            <input type="text" id="relleno" />
+            <p id="apellidoError" className="msg-error errors"></p>
+            <label className="names">Email</label>
+            <input type="text" id="relleno" />
+            <p id="emailError" className="msg-error errors"></p>
+            <label className='names'>Mensaje</label>
+            <textarea id='relleno' cols="30" rows="8" borde-radius="10px" ></textarea>
+            <section className='button'>
+              <button type="reset">Cancelar</button>
+              <button type='submit' value="Submit">Enviar</button>
+            </section>
+          </form>
         </div>
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
 
       </NavContainer>
-      <Footer/>
+      <Footer />
     </>
   )
 }
