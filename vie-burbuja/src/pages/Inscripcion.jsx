@@ -1,5 +1,6 @@
 import React from 'react'
 import BurguerButton from '../components/BurguerButtom'
+import Footer from '../includes/Footer'
 import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
 export default function Incripcion() {
@@ -31,11 +32,11 @@ export default function Incripcion() {
           <p id="emailError" className="msg-error errors"></p>
           <input type="text" id="relleno"  />
 
-          <h3>Hijos</h3>
+          <h3>Hijo</h3>
 
           <label className="names">Nombre</label>
           <input type="text"  id="relleno"  />
-          <p id="nombreError" class="msg-error errors"></p>
+          <p id="nombreError" className="msg-error errors"></p>
 
           <label className="names">Apellido</label>
           <input type="text"  id="relleno"  />
@@ -55,6 +56,7 @@ export default function Incripcion() {
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
 
       </NavContainer>
+      <Footer /> 
     </>
   )
 }
@@ -125,6 +127,8 @@ const NavContainer = styled.nav`
     width: 89%;
     margin: auto;
     margin-top: 50px;
+    font-family:Montserrat;
+
 }
 .form.active{
   visibility:hidden;

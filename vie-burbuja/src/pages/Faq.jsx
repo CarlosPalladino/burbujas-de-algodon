@@ -34,7 +34,7 @@ export default function Navbar(props) {
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       </NavContainer>
   
-      {/* <Footer /> */}
+      <Footer /> 
     </>
 
   )
@@ -104,6 +104,8 @@ const NavContainer = styled.nav`
 } 
 .texts {
   text-align: center;
+  font-family:Montserrat;
+
   margin-top:2px; 
   h3{
     margin-top:4px

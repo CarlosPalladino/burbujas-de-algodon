@@ -3,7 +3,15 @@ import Footer from '../includes/Footer'
 import BurguerButton from '../components/BurguerButtom'
 import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
-// traer script de validacion 
+import axios from "axios";
+
+
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'  // de donde sale esto
+const MySwal = withReactContent(Swal)                      // de donde sale esto
+
+let consultasApiURl = "http://localhost:4000/mensajes/create"
+
 export default function Incripcion() {
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {

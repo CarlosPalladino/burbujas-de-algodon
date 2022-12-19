@@ -29,6 +29,6 @@ margin-top:20px;
 .logo{
     width: 100%;
     position: relative;
-    right: 20px;   
+    right: 28px;   
   }
 `
