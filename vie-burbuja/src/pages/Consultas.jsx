@@ -3,35 +3,12 @@ import Footer from '../includes/Footer'
 import BurguerButton from '../components/BurguerButtom'
 import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
-// import axios from "axios";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
-//  import withReactContent from 'sweetalert2-react-content'  // de donde sale esto
-//  const MySwal = withReactContent(Swal)                      // de donde sale esto
-
-let consultasApiURl = "http://localhost:4000/mensajes/create"
-
-// const mjs = function (e){
-
-
-//   e.preventDefault(
-
-//   )
-
-//   Swal.fire({
-//     title: 'Error!',
-//     text: 'next ',
-//     icon: 'warning',
-//     confirmButtonText: 'Cool'
-//   })
-//   // let result = await axios.post(consultasApiURl, {
-
-//   // })
-// }
 export default function Incripcion() {
 
+  const onSubmit = data => console.log(data);
   const { register, handleSubmit, formState: { errors } } = useForm();
-
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
     setClicked(!clicked)
@@ -51,37 +28,35 @@ export default function Incripcion() {
         </div>
 
         <div className={`forms ${clicked ? 'active' : ''}`}>
-          <form onSubmit={handleClick((data) => {
-
-          }
-
-          )}>
+          <form onSubmit={handleSubmit((onSubmit =>{ 
+            console.log(data)
+          }))}>
             <label className="names">Nombre</label>
+            <input type="text"  id="relleno" {...register("nombre", {
+              required: "este campo es obligatorio",
+              minLength: 2,
+              message: "minimo dos letras"
 
-            <input type="text" id="relleno" {...register("nombre"),
-            {
-              minLength: {
-                value: 2,
-                message: "minimo dos letras"
-              }
-            }} />
+            })} />
             <p>{errors.nombre?.message}</p>
 
             <label className="names"  >Apellido</label>
             <input type="text"{...register("apellido", {
-              minLength: {
-                value: 2,
-                message: "minimo 2 letras"
-              }
-            })} />
+              required: "este campo es obligatorio",
+              minLength: 2,
+              value: 2,
+              message: "minimo 2 letras"
+
+            })}  />
             <p>{errors.apellido?.message}</p>
 
             <label className="names" >Email</label>
-            <input type="text" id="relleno"  {...register("email"), {
-              minLength: {
-                message: "no es un email valido"
-              }
-            }} />
+            <input type="text" id="relleno"  {...register("email", {
+
+              pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              message: "no es un  valido"
+
+            })} />
             <p>{errors.email?.message}</p>
             <label className='names'>Mensaje</label>
             <textarea id='relleno' cols="30" rows="8" borde-radius="10px" ></textarea>
@@ -92,12 +67,13 @@ export default function Incripcion() {
           </form>
         </div>
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
-
       </NavContainer>
       <Footer />
     </>
   )
 }
+
+
 const NavContainer = styled.nav`
     .header {
         background-color: #27366B;
@@ -174,8 +150,8 @@ button{
   color:white;
   background-color: #27366B;
   border:none;
-margin:1.5rem; }
-   `
+margin:1.5rem; } `
+
 const BgDiv = styled.div`
     background-color: #27366B;
       position: absolute;
@@ -190,5 +166,4 @@ const BgDiv = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-      }
-      `
+      }`

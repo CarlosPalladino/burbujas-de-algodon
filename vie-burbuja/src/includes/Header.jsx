@@ -11,7 +11,6 @@ export default function Navbar() {
       <NavContainer>
         < img src="/burbuja.svg" alt="" className='logo' href="/" />
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="/">Inicio</a>
           <a onClick={handleClick} href="./pages/Faq">FaQ</a>
           <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
           <a onClick={handleClick} href="./pages/Consultas">Consultas</a>
