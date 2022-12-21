@@ -28,11 +28,11 @@ export default function Incripcion() {
         </div>
 
         <div className={`forms ${clicked ? 'active' : ''}`}>
-          <form onSubmit={handleSubmit((onSubmit =>{ 
+          <form onSubmit={handleSubmit((onSubmit => {
             console.log(data)
           }))}>
             <label className="names">Nombre</label>
-            <input type="text"  id="relleno" {...register("nombre", {
+            <input type="text" id="relleno" {...register("nombre", {
               required: "este campo es obligatorio",
               minLength: 2,
               message: "minimo dos letras"
@@ -41,18 +41,17 @@ export default function Incripcion() {
             <p>{errors.nombre?.message}</p>
 
             <label className="names"  >Apellido</label>
-            <input type="text"{...register("apellido", {
+            <input type="text" id="rellenof"{...register("apellido", {
               required: "este campo es obligatorio",
               minLength: 2,
               value: 2,
               message: "minimo 2 letras"
-
-            })}  />
+            })} />
             <p>{errors.apellido?.message}</p>
 
             <label className="names" >Email</label>
             <input type="text" id="relleno"  {...register("email", {
-
+              minLength: 2,
               pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
               message: "no es un  valido"
 
@@ -60,6 +59,7 @@ export default function Incripcion() {
             <p>{errors.email?.message}</p>
             <label className='names'>Mensaje</label>
             <textarea id='relleno' cols="30" rows="8" borde-radius="10px" ></textarea>
+            <p>{errors.email?.message}</p>
             <section className='button'>
               <button type="reset">Cancelar</button>
               <button type='submit' value="Submit">Enviar</button>

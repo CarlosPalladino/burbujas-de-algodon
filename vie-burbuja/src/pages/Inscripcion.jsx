@@ -1,8 +1,8 @@
 import React from 'react'
 import BurguerButton from '../components/BurguerButtom'
-import Footer from '../includes/Footer'
 import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
+import { useForm } from "react-hook-form";
 export default function Incripcion() {
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
@@ -22,21 +22,37 @@ export default function Incripcion() {
           <a onClick={handleClick} href="./Faq">Preguntas</a>
         </div>
         <div className={`form ${clicked ? 'active' : ''}`}>
-          <label className="names">Nombre</label>
-          <input type="text" id="relleno"/>
-          <p id="nombreError" className="msg-error errors"></p>
-          <label className="names">Apellido</label>
-          <p id="apellidoError" className="msg-error errors"></p>
-          <input type="text" id="relleno"/>
-          <label className="names">Email</label>
-          <p id="emailError" className="msg-error errors"></p>
-          <input type="text" id="relleno"  />
+        <label className="names">Nombre</label>
+            <input type="text" id="relleno" {...register("nombre", {
+              required: "este campo es obligatorio",
+              minLength: 2,
+              message: "minimo dos letras"
 
-          <h3>Hijo</h3>
+            })} />
+            <p>{errors.nombre?.message}</p>
+
+            <label className="names"  >Apellido</label>
+            <input type="text" id="rellenof"{...register("apellido", {
+              required: "este campo es obligatorio",
+              minLength: 2,
+              value: 2,
+              message: "minimo 2 letras"
+            })} />
+            <p>{errors.apellido?.message}</p>
+
+            <label className="names" >Email</label>
+            <input type="text" id="relleno"  {...register("email", {
+              minLength: 2,
+              pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              message: "no es un  valido"
+
+            })} />
+
+          <h3>Hijos</h3>
 
           <label className="names">Nombre</label>
           <input type="text"  id="relleno"  />
-          <p id="nombreError" className="msg-error errors"></p>
+          <p id="nombreError" class="msg-error errors"></p>
 
           <label className="names">Apellido</label>
           <input type="text"  id="relleno"  />
@@ -56,7 +72,6 @@ export default function Incripcion() {
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
 
       </NavContainer>
-      <Footer /> 
     </>
   )
 }
@@ -127,8 +142,6 @@ const NavContainer = styled.nav`
     width: 89%;
     margin: auto;
     margin-top: 50px;
-    font-family:Montserrat;
-
 }
 .form.active{
   visibility:hidden;
