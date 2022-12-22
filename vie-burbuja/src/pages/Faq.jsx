@@ -40,6 +40,9 @@ export default function Navbar(props) {
   )
 }
 const NavContainer = styled.nav`
+*{
+  font-family: poppins;
+}
 .header {
   background-color: #27366B;
   display:flex;

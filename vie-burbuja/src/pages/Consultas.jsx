@@ -18,7 +18,7 @@ export default function Incripcion() {
     <>
       <NavContainer>
         <div className={`header ${clicked ? 'active' : ''}`}>
-          <img src="/burbuja.svg" alt="" className='logo' href="/" />
+          <img src="/burbuja.svg" className='logo' href="../" />    {/*problemas aca */}
           <BurguerButton clicked={clicked} handleClick={handleClick} />
         </div>
         <div className={`links ${clicked ? 'active' : ''}`}>
@@ -79,6 +79,11 @@ export default function Incripcion() {
 
 
 const NavContainer = styled.nav`
+*{
+  font-family:poppins;
+
+}
+
     .header {
         background-color: #27366B;
         display:flex;
@@ -100,6 +105,8 @@ const NavContainer = styled.nav`
           font-size: 2rem;
           display: block;
           text-decoration: none;
+          font-family:poppins;
+
       
         }
         @media(min-width: 768px){
@@ -110,6 +117,7 @@ const NavContainer = styled.nav`
             pading: 1rem;
             justify-content: space-around;
             color: white;
+            font-family:poppins;
             display: inline;}}}
       .links.active{
         width: 100%;
@@ -125,6 +133,7 @@ const NavContainer = styled.nav`
         a{
           font-size: 2rem;
           margin-top: 12px;
+
           color: white;}}
       .logo{
        width:50%;
@@ -143,6 +152,7 @@ const NavContainer = styled.nav`
           color: white;
           text-align: center;
           font-size: 12px;  
+
         }
     }
     .names {

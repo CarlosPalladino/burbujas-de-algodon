@@ -10,8 +10,6 @@ export default function Navbar() {
   return (
     <>
       <Header clicked={clicked} handleClick={handleClick} />
-     
-
 
     <Footer/>  
     </>

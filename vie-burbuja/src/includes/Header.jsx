@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <>
       <NavContainer>
-        < img src="/burbuja.svg" alt="" className='logo' href="/" />
+        < img src="/burbuja.svg" className='logo' href="/" />
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="./pages/Faq">FaQ</a>
           <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
@@ -20,31 +20,38 @@ export default function Navbar() {
         </div>
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       </NavContainer>
-      <Home >
-        <div className={`texts ${clicked ? 'active' : ''}`}>
+      <Home>
+        <section className={`texts ${clicked ? 'active' : ''}`}>
+ 
           <i className="fa-solid fa-house icon"></i>
           <h2>Nuestra institucion</h2>
           <p> Brindamos a nuestros alumnos una educación integral y formación de las pirmeras enseñanzas</p>
-
-          <h2>Deportes</h2>
-
-          <p> Contamos con un ambiente cuidado para que en cada actividad a realizar 100% seguro </p>
+          <img src="/imagen-jardin.jpg" alt="jardin" width="350" />
+       
+          <h2>Actividades</h2>
+          <p> Contamos con un ambiente cuidado para que cada actividad se realice 100% seguro </p>
+          <img src="/patio-de-juegos-del-jardin.jpg" width="350" />
           <i className="fa-solid fa-graduation-cap icon"></i>
+          
           <h2> Nuestros objetivos</h2>
           <p>
             Ofrecer una educación formal, incorporada a la enseñanza oficial, que los forme como sujetos competentes en donde se favorezca el desarrollo de sus habilidades para acceder a mejores condiciones de vida,
           </p>
 
-          {/* href */}
-        </div>
+        </section>
       </Home>
+
     </>
   )
 }
 const NavContainer = styled.nav`
+*{
+  font-family:poppins;
+  text-align:center;
+
+}
   background-color: #27366B;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 
 .logo{
@@ -67,7 +74,6 @@ const NavContainer = styled.nav`
     text-align: center;
     transition: all .5s ease;
     a{
-      color: white;
       font-size: 2rem;
       display: block;
     }
@@ -79,7 +85,6 @@ const NavContainer = styled.nav`
         font-size: 1rem;
         pading: 1rem;
         justify-content: space-around;
-        color: white;
         display: inline;
       }
       display: block;
@@ -95,7 +100,6 @@ const NavContainer = styled.nav`
     top: 23%;
     left: 10px;
     right: 10px;
-    text-align: center;
     a{
       font-size: 2rem;
       margin-top: 12px;
@@ -108,17 +112,20 @@ const NavContainer = styled.nav`
     }
   }`
 const Home = styled.div`
+*{
+  font-family:poppins;
+  text-align:center;
+  color:white;
+}
 .texts {
   text-align: center;
   background-color:#27366B;
   h2{
     margin-top:2px;
     color:white;
-      font-family:poppins;
   }
   p{
   font-size: 16px;
-    font-family: Montserrat;
     font-weight: 400;
     line-height: 28px;
     letter-spacing: 0.7px;
