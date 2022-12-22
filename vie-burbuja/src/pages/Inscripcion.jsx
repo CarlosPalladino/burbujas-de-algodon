@@ -2,8 +2,12 @@ import React from 'react'
 import BurguerButton from '../components/BurguerButtom'
 import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 import { useForm } from "react-hook-form";
 import Footer from '../includes/Footer';
+
+let anotarse = "http://localhost:4000/incripcion/create"
+
 export default function Incripcion() {
   const [clicked, setClicked] = useState(false)
   const onSubmit = data => console.log(data);
@@ -22,7 +26,6 @@ export default function Incripcion() {
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="/">Inicio</a>
           <a onClick={handleClick} href="./Consultas">Consultas</a>
-          <a onClick={handleClick} href="./Faq">Preguntas</a>
         </div>
         <div className={`form ${clicked ? 'active' : ''}`}>
           <form onSubmit={handleSubmit((onSubmit => {
@@ -159,7 +162,7 @@ const NavContainer = styled.nav`
     border-radius:44px;
     padding: 10px;
     width: 89%;
-    margin: auto;
+    margin: 15px;
     margin-top: 50px;
        p{
     color: white;

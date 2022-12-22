@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
 export default function Incripcion() {
 
+let consulta ="http://localhost:4000/mensajes/create"
+
   const onSubmit = data => console.log(data);
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [clicked, setClicked] = useState(false)
@@ -24,7 +26,6 @@ export default function Incripcion() {
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="/">Inicio</a>
           <a onClick={handleClick} href="./Incripcion">Incrcipcion</a>
-          <a onClick={handleClick} href="./Faq">Preguntas</a>
         </div>
 
         <div className={`forms ${clicked ? 'active' : ''}`}>

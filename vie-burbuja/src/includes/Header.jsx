@@ -21,17 +21,17 @@ export default function Navbar() {
       </NavContainer>
       <Home>
         <section className={`texts ${clicked ? 'active' : ''}`}>
- 
+
           <i className="fa-solid fa-house icon"></i>
           <h2>Nuestra institucion</h2>
           <p> Brindamos a nuestros alumnos una educación integral y formación de las pirmeras enseñanzas</p>
           <img src="/imagen-jardin.jpg" alt="jardin" width="350" />
-       
+
           <h2>Actividades</h2>
           <p> Contamos con un ambiente cuidado para que cada actividad se realice 100% seguro </p>
           <img src="/patio-de-juegos-del-jardin.jpg" width="350" />
           <i className="fa-solid fa-graduation-cap icon"></i>
-          
+
           <h2> Nuestros objetivos</h2>
           <p>
             Ofrecer una educación formal, incorporada a la enseñanza oficial, que los forme como sujetos competentes en donde se favorezca el desarrollo de sus habilidades para acceder a mejores condiciones de vida,
@@ -48,11 +48,12 @@ const NavContainer = styled.nav`
   font-family:poppins;
   text-align:center;
   letter-spacing: 5px;
-color:white;
+  color:white;
 }
   background-color: #27366B;
   display: flex;
   justify-content: space-between;
+align-items: center;
 
 .logo{
   width: 50%;
@@ -111,17 +112,19 @@ color:white;
   }`
 const Home = styled.div`
 *{
-  font-family:poppins;
   text-align:center;
   color:white;
 }
 .texts {
+ font-family:poppins;
   text-align: center;
   background-color:#27366B;
   h2{
     margin-top:2px;
     color:white;
     letter-spacing: 3px;
+    border-bottom: 1px solid #999;
+    border-top: 1px solid #999;
   }
   p{
   font-size: 16px;
@@ -148,14 +151,13 @@ background-color: #27366B;
   top: -1000px;
   left: -1000px;
   width: 100%;
-  height: 90%;
+  height: 100%;
   z-index: -1;
   transition: all .8s  ;
   &.active{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    // border-radius: 0 0 30px 30px;
+    height: 126%;
   }
 `
