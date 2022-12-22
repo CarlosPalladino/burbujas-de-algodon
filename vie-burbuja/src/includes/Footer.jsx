@@ -2,8 +2,8 @@ import styled from "styled-components"
 export default function Footer() {
     return (<>
         <NavContainer>
-            <h3> calle falsa 123 </h3><i class="fa-solid fa-house icon" ></i>
-            <h3> +54 1224124</h3><i class="fa-solid fa-phone icon "></i>
+            <h3> calle falsa 123 </h3><i className="fa-solid fa-house icon" ></i>
+            <h3> +54 1224124</h3><i className="fa-solid fa-phone icon "></i>
             {/* email random  */}
             < img src="/burbuja.svg" alt="" className='logo' href="/" />
         </NavContainer>

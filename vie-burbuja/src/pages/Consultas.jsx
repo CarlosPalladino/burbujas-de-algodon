@@ -28,8 +28,7 @@ export default function Incripcion() {
         </div>
 
         <div className={`forms ${clicked ? 'active' : ''}`}>
-          <form onSubmit={handleSubmit((onSubmit => {
-            console.log(data)
+          <form onSubmit={handleSubmit((data => {
           }))}>
             <label className="names">Nombre</label>
             <input type="text" id="relleno" {...register("nombre", {
@@ -40,29 +39,34 @@ export default function Incripcion() {
             })} />
             <p>{errors.nombre?.message}</p>
 
-            <label className="names"  >Apellido</label>
-            <input type="text" id="rellenof"{...register("apellido", {
+            <label className="names">Apellido</label>
+            <input type="text" id="relleno"{...register("apellido", {
               required: "este campo es obligatorio",
               minLength: 2,
-              value: 2,
               message: "minimo 2 letras"
             })} />
             <p>{errors.apellido?.message}</p>
 
-            <label className="names" >Email</label>
+            <label className="names">Email</label>
             <input type="text" id="relleno"  {...register("email", {
               minLength: 2,
-              pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              message: "no es un  valido"
+              message: "no es un  valido",
+              required: "este campo es obligatorio",
+
 
             })} />
             <p>{errors.email?.message}</p>
             <label className='names'>Mensaje</label>
-            <textarea id='relleno' cols="30" rows="8" borde-radius="10px" ></textarea>
-            <p>{errors.email?.message}</p>
+            <textarea id='relleno' cols="30" rows="8" borde-radius="10px"  {...register("mensaje", {
+              minLength: 15,
+              message: "el campo no puede estar vacio",
+              required: "este campo es obligatorio",
+
+            })} ></textarea>
+            <p>{errors.mensaje?.message}</p>
             <section className='button'>
               <button type="reset">Cancelar</button>
-              <button type='submit' value="Submit">Enviar</button>
+              <button type='submit' >Enviar</button>
             </section>
           </form>
         </div>
@@ -135,13 +139,19 @@ const NavContainer = styled.nav`
         width: 90%;
         margin: auto;
         margin-top: 50px;
+        p{
+          color: white;
+          text-align: center;
+          font-size: 12px;  
+        }
     }
     .names {
-      color: white ;}
+      color: white;
+      margin: 24px;
+    }
     #relleno {
       margin:15px;
       padding:3px;
-      margin-top:2px;
       border-radius:10px;}
      .forms.active{
       visibility:hidden;}

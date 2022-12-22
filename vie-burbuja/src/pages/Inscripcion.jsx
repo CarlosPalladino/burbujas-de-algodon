@@ -3,8 +3,11 @@ import BurguerButton from '../components/BurguerButtom'
 import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";
+import Footer from '../includes/Footer';
 export default function Incripcion() {
   const [clicked, setClicked] = useState(false)
+  const onSubmit = data => console.log(data);
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const handleClick = () => {
     setClicked(!clicked)
 
@@ -22,7 +25,10 @@ export default function Incripcion() {
           <a onClick={handleClick} href="./Faq">Preguntas</a>
         </div>
         <div className={`form ${clicked ? 'active' : ''}`}>
-        <label className="names">Nombre</label>
+          <form onSubmit={handleSubmit((onSubmit => {
+            
+        }))}>   
+             <label className="names">Nombre</label>
             <input type="text" id="relleno" {...register("nombre", {
               required: "este campo es obligatorio",
               minLength: 2,
@@ -32,10 +38,9 @@ export default function Incripcion() {
             <p>{errors.nombre?.message}</p>
 
             <label className="names"  >Apellido</label>
-            <input type="text" id="rellenof"{...register("apellido", {
+            <input type="text" id="relleno"{...register("apellido", {
               required: "este campo es obligatorio",
               minLength: 2,
-              value: 2,
               message: "minimo 2 letras"
             })} />
             <p>{errors.apellido?.message}</p>
@@ -47,31 +52,42 @@ export default function Incripcion() {
               message: "no es un  valido"
 
             })} />
+            <p>{errors.email?.message}</p>
 
-          <h3>Hijos</h3>
+            <h3>Hijos</h3>
+            <input type="text" id="relleno" {...register("nombre", {
+              required: "este campo es obligatorio",
+              minLength: 2,
+              message: "minimo dos letras"
 
-          <label className="names">Nombre</label>
-          <input type="text"  id="relleno"  />
-          <p id="nombreError" class="msg-error errors"></p>
+            })} />
+            <p>{errors.nombre?.message}</p>
 
-          <label className="names">Apellido</label>
-          <input type="text"  id="relleno"  />
-          <p id="apellidoError" className="msg-error errors"></p>
-          <label className="names">turno</label>
-          <select name ="turno"id="turno">
-          <option value="mañana">mañana</option>
-          <option value="mañana">tarde</option>
+            <label className="names">Apellido</label>
+            <input type="text" id="relleno"{...register("apellido", {
+              required: "este campo es obligatorio",
+              minLength: 2,
+              message: "minimo 2 letras"
+            })} />
+                        <p>{errors.apellido?.message}</p>
 
-          </select>
+            <label className="names">turno</label>
+            <select name="turno" id="turno">
+              <option value="mañana">mañana</option>
+              <option value="mañana">tarde</option>
 
-          <div className="buton">
-            <button type="reset">Cancelar</button>
-            <button type="submit" value="Submit">Enviar</button>
-          </div>
+            </select>
+
+            <section className="buton">
+              <button type="reset">Cancelar</button>
+              <button type="submit" >Enviar</button>
+            </section>
+          </form>
         </div>
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
 
       </NavContainer>
+      <Footer />
     </>
   )
 }
@@ -142,33 +158,41 @@ const NavContainer = styled.nav`
     width: 89%;
     margin: auto;
     margin-top: 50px;
-}
+       p{
+    color: white;
+    text-align: center;
+    font-size: 12px;  
+  }}
 .form.active{
   visibility:hidden;
 }
     h3{
       color: white;
-      margin:4px;
+      margin:9px;
+      font-size:22px
     }   }
  #relleno {
-  margin:10px;
   margin:15px;
   padding:3px;
   margin-top:2px;
   border-radius:10px;
  }
  #turno{
-  width:65%;
-  margin: 10px;
+  width:69%;
+  margin: 15px;
   margin-top: 2px;
   border-radius: 10px;
+  padding: 3px
  }
  .names{
   color: white;
+  margin: 24px;
+
  }
  button{
   padding: 10px;
   color:white;
+  
   background-color: #27366B;
   border:none;
 margin:1.5rem; 
