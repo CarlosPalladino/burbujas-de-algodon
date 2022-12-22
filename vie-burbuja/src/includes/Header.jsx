@@ -11,7 +11,6 @@ export default function Navbar() {
       <NavContainer>
         < img src="/burbuja.svg" className='logo' href="/" />
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="./pages/Faq">FaQ</a>
           <a onClick={handleClick} href="./pages/Incripcion">Incrcipcion</a>
           <a onClick={handleClick} href="./pages/Consultas">Consultas</a>
         </div>
@@ -48,7 +47,8 @@ const NavContainer = styled.nav`
 *{
   font-family:poppins;
   text-align:center;
-
+  letter-spacing: 5px;
+color:white;
 }
   background-color: #27366B;
   display: flex;
@@ -59,7 +59,6 @@ const NavContainer = styled.nav`
   margin: -12px 21px 12px -45px;
 }
   a{
-    color: white;
     text-decoration: none;
     margin-right: 1rem;
     font-size: 1rem
@@ -103,7 +102,6 @@ const NavContainer = styled.nav`
     a{
       font-size: 2rem;
       margin-top: 12px;
-      color: white;
     }
   }
   .burguer{
@@ -123,6 +121,7 @@ const Home = styled.div`
   h2{
     margin-top:2px;
     color:white;
+    letter-spacing: 3px;
   }
   p{
   font-size: 16px;

@@ -4,7 +4,14 @@ export default function Footer() {
         <NavContainer>
             <h3> calle falsa 123 </h3><i className="fa-solid fa-house icon" ></i>   {/* problemas de iconos */ }
             <h3> +54 1224124</h3><i className="fa-solid fa-phone icon "></i>
-            {/* email random  */}
+            <h3>Horarios</h3>
+        <p>de Lunes a Viernes de 8 a 12 hs </p>
+        <p>de Lunes a Viernes de 13 a 17 hs </p>
+        <h3>¿Qué debo presentar?</h3>
+        <ul>
+          <li>documentos de madre
+            /padre/tutor</li>
+          </ul>            {/* email random  */}
             < img src="/burbuja.svg" alt="" className='logo' href="/" />
         </NavContainer>
     </>
@@ -17,6 +24,8 @@ const NavContainer = styled.nav `
     display:flex;
     flex-direction: column;
     align-items: center;
+    
+    color:white;
   }
   background-color: #27366B;
     display:flex;

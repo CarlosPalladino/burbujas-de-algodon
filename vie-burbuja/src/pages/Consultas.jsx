@@ -83,13 +83,13 @@ const NavContainer = styled.nav`
   font-family:poppins;
 
 }
-
     .header {
         background-color: #27366B;
         display:flex;
         align-items: center;
         justify-content: space-between;
-      
+        font-family:poppins;
+
       }
       .links {
         position: absolute;
@@ -146,8 +146,8 @@ const NavContainer = styled.nav`
         border-radius:44px;
         padding: 10px;
         width: 90%;
-        margin: auto;
-        margin-top: 50px;
+        margin: 15px;
+        margin-top: 40px;
         p{
           color: white;
           text-align: center;
