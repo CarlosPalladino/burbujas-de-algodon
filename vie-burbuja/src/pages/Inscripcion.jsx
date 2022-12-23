@@ -1,12 +1,17 @@
 import React from 'react'
+import Footer from '../includes/Footer';
 import BurguerButton from '../components/BurguerButtom'
 import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import { useForm } from "react-hook-form";
-import Footer from '../includes/Footer';
 
-let anotarse = "http://localhost:4000/incripcion/create"
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
+
+
+let endpoint = "http://localhost:4000/incripcion/create"
 
 export default function Incripcion() {
   const [clicked, setClicked] = useState(false)
@@ -14,87 +19,108 @@ export default function Incripcion() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const handleClick = () => {
     setClicked(!clicked)
-
   }
-  return (
-    <>
-      <NavContainer>
-        <div className={`header ${clicked ? 'active' : ''}`}>
-        <img src="/burbuja.svg" className='logo' href="../" />  {/*problemas aca */}
-          <BurguerButton clicked={clicked} handleClick={handleClick} />
-        </div>
-        <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="/">Inicio</a>
-          <a onClick={handleClick} href="./Consultas">Consultas</a>
-        </div>
-        <div className={`form ${clicked ? 'active' : ''}`}>
-          <form onSubmit={handleSubmit((onSubmit => {
-            
-        }))}>   
-             <label className="names">Nombre</label>
-            <input type="text" id="relleno" {...register("nombre", {
-              required: "este campo es obligatorio",
-              minLength: 2,
-              message: "minimo dos letras"
 
-            })} />
-            <p>{errors.nombre?.message}</p>
+  const incription = async e => {
+    e.preventDefault()
+    let result = await axios.post(endpoint, {
+      nombre: nombre.current.value,
+      apellido: apellido.current.value,
+      email: email.current.value,
+      nombre: nombre.current.value,
+      apellido: apellido.current.value,
+      turno: turno.current.value
+    })
 
-            <label className="names"  >Apellido</label>
-            <input type="text" id="relleno"{...register("apellido", {
-              required: "este campo es obligatorio",
-              minLength: 2,
-              message: "minimo 2 letras"
-            })} />
-            <p>{errors.apellido?.message}</p>
+    if (result.data) {
+      MySwal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Inscripción correcta',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
 
-            <label className="names" >Email</label>
-            <input type="text" id="relleno"  {...register("email", {
-              minLength: 2,
-              pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              message: "no es un  valido"
+    return (
+      <>
+        <NavContainer>
+          <div className={`header ${clicked ? 'active' : ''}`}>
+            <img src="/burbuja.svg" className='logo' href="../" />  {/*problemas aca */}
+            <BurguerButton clicked={clicked} handleClick={handleClick} />
+          </div>
+          <div className={`links ${clicked ? 'active' : ''}`}>
+            <a onClick={handleClick} href="/">Inicio</a>
+            <a onClick={handleClick} href="./Consultas">Consultas</a>
+          </div>
+          <div className={`form ${clicked ? 'active' : ''}`}>
+            <form onSubmit={handleSubmit((incription => {
 
-            })} />
-            <p>{errors.email?.message}</p>
+            }))}>
+              <label className="names">Nombre</label>
+              <input type="text" id="relleno" ref={nombre} {...register("nombre", {
+                required: "este campo es obligatorio",
+                minLength: 2,
+                message: "minimo dos letras"
 
-            <h3>Hijos</h3>
-            <input type="text" id="relleno" {...register("nombre", {
-              required: "este campo es obligatorio",
-              minLength: 2,
-              message: "minimo dos letras"
+              })} />
+              <p>{errors.nombre?.message}</p>
 
-            })} />
-            <p>{errors.nombre?.message}</p>
+              <label className="names"  >Apellido</label>
+              <input type="text" id="relleno" ref={apellido}{...register("apellido", {
+                required: "este campo es obligatorio",
+                minLength: 2,
+                message: "minimo 2 letras"
+              })} />
+              <p>{errors.apellido?.message}</p>
 
-            <label className="names">Apellido</label>
-            <input type="text" id="relleno"{...register("apellido", {
-              required: "este campo es obligatorio",
-              minLength: 2,
-              message: "minimo 2 letras"
-            })} />
-                        <p>{errors.apellido?.message}</p>
+              <label className="names" >Email</label>
+              <input type="text" id="relleno" ref={email}  {...register("email", {
+                minLength: 2,
+                pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                message: "no es un  valido"
 
-            <label className="names">turno</label>
-            <select name="turno" id="turno">
-              <option value="mañana">mañana</option>
-              <option value="mañana">tarde</option>
+              })} />
+              <p>{errors.email?.message}</p>
 
-            </select>
+              <h3>Hijos</h3>
+              <input type="text" id="relleno" ref={nombre}{...register("nombre", {
+                required: "este campo es obligatorio",
+                minLength: 2,
+                message: "minimo dos letras"
 
-            <section className="buton">
-              <button type="reset">Cancelar</button>
-              <button type="submit" >Enviar</button>
-            </section>
-          </form>
-        </div>
-        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+              })} />
+              <p>{errors.nombre?.message}</p>
 
-      </NavContainer>
-      <Footer />
-    </>
-  )
-}
-const NavContainer = styled.nav`
+              <label className="names">Apellido</label>
+              <input type="text" id="relleno" ref={apellido}{...register("apellido", {
+                required: "este campo es obligatorio",
+                minLength: 2,
+                message: "minimo 2 letras"
+              })} />
+              <p>{errors.apellido?.message}</p>
+
+              <label className="names">turno</label>
+              <select name="turno" id="turno" ref={turno}>
+                <option value="mañana">mañana</option>
+                <option value="mañana">tarde</option>
+
+              </select>
+
+              <section className="buton">
+                <button type="reset">Cancelar</button>
+                <button type="submit" >Enviar</button>
+              </section>
+            </form>
+          </div>
+          <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+
+        </NavContainer>
+        <Footer />
+      </>
+    )
+  }
+  const NavContainer = styled.nav`
 *{
   font-family:poppins;
 
@@ -193,18 +219,16 @@ const NavContainer = styled.nav`
  .names{
   color: white;
   margin: 24px;
-
  }
  button{
   padding: 10px;
   color:white;
-  
   background-color: #27366B;
   border:none;
 margin:1.5rem; 
   }   
 `
-const BgDiv = styled.div`
+  const BgDiv = styled.div`
 background-color: #27366B;
   position: absolute;
   top: -1000px;
@@ -219,4 +243,4 @@ background-color: #27366B;
     width: 100%;
     height: 100%;
   }
-  `
+`}
