@@ -5,10 +5,18 @@ import { useState, UseEffect } from 'react'
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
+
+
+
+
+
+
+
+
+
 export default function Incripcion() {
 
-let consulta ="http://localhost:4000/mensajes/create"
-
+  
   const onSubmit = data => console.log(data);
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [clicked, setClicked] = useState(false)
