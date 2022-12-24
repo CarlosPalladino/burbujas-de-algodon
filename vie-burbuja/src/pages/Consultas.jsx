@@ -13,34 +13,40 @@ let endpoint = "http://localhost:4000/mensajes/create"
 
 export default function Consultas() {
   const [clicked, setClicked] = useState(false)
-const { register, handleSubmit, formState: { errors } } = useForm();
-
   const handleClick = () => {
     setClicked(!clicked)
   }
+const { register, handleSubmit, formState: { errors } } = useForm();
+
 function onSubmit(data){ 
   console.log(data);
-
-}async e => {
+  
+return 
+}
+async e => {
   e.preventDefault()
-  let result = await axios.post(endpoint, onSubmit, data)
-
+  let result = await axios.post(endpoint, onSubmit,data)
+// no se envia la data , pero si se almacena todo en data 
 if (result.data) {
-  MySwal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Inscripción correcta',
-    showConfirmButton: false,
-    timer: 1500
-  })
+  {
+    MySwal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Inscripción correcta',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+  }
 }
 }
+
   return (
     <>
       <NavContainer>
         <div className={`header ${clicked ? 'active' : ''}`}>
           <img src="/burbuja.svg" className='logo' href="../" />    {/*problemas aca */}
-          <BurguerButton clicked={clicked} handleClick={onSubmit} />
+          <BurguerButton clicked={clicked} handleClick={handleClick} />
         </div>
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="/">Inicio</a>
@@ -89,7 +95,8 @@ if (result.data) {
             <p>{errors.mensaje?.message}</p>
             <section className='button'>
               <button type="reset">Cancelar</button>
-              <button type='submit'>Enviar</button>
+              <button type='submit' onClick={onSubmit}>Enviar</button>
+              {/* <button onClick={()=>alert()}>Enviar</button> */}
             </section>
           </form>
         </div>
@@ -138,6 +145,8 @@ const NavContainer = styled.nav`
           a{
             font-size: 1rem;
             pading: 1rem;
+            display: flex;
+  
             justify-content: space-around;
             color: white;
             font-family:poppins;
@@ -155,7 +164,8 @@ const NavContainer = styled.nav`
         text-align: center;
         a{
           font-size: 2rem;
-          margin-top: 12px;
+          margin-top: 5rem;
+          display:block;
 
           color: white;}}
       .logo{
@@ -192,7 +202,32 @@ button{
   color:white;
   background-color: #27366B;
   border:none;
-margin:1.5rem; } `
+margin:1.5rem; }
+@media (min-width: 768){
+  *{
+    font-family:poppins
+  }
+  .logo{
+    width:50%;
+    margin: -12px 21px 12px -45px;}
+    .forms{
+     background-color: #27366B;
+     align-items: baseline;
+     display:flex;
+     flex-direction: column;
+     border-radius:44px;
+     padding: 10px;
+     width: 60%;
+     margin: 15px;
+     margin-top: 40px;
+     p{
+       color: white;
+       text-align: center;
+       font-size: 12px;  
+     }
+ }
+}
+`
 
 const BgDiv = styled.div`
     background-color: #27366B;

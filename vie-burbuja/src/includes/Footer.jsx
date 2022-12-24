@@ -33,6 +33,7 @@ const NavContainer = styled.nav `
 h3 {
 color: white;
 margin-top:20px;
+
 }
 .icon {
     color: white;
