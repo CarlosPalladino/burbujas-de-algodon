@@ -17,7 +17,7 @@ export default function Incripcion() {
   const [clicked, setClicked] = useState(false)
 
 
-  const onSubmit = data => console.log(data);
+
   const { register, handleSubmit, formState: { errors } } = useForm();
 
 
@@ -26,19 +26,22 @@ export default function Incripcion() {
     setClicked(!clicked)
   }
 
-  const incription = async e => {
+  function onSubmit(data){ 
+    console.log(data);
+
+  }async e => {
     e.preventDefault()
     let result = await axios.post(endpoint, onSubmit, data)
-
-    //   if (result.data) {
-    //     MySwal.fire({
-    //       position: 'center',
-    //       icon: 'success',
-    //       title: 'Inscripción correcta',
-    //       showConfirmButton: false,
-    //       timer: 1500
-    //     })
-    //   }
+    
+  if (result.data) {
+    MySwal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Inscripción correcta',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
   }
   return (
     <>
@@ -55,7 +58,7 @@ export default function Incripcion() {
 
 
 
-          <form onSubmit={handleSubmit((onsubmit))}>
+          <form onSubmit={handleSubmit((onSubmit))}>
 
 
             <label className="names">Nombre</label>
