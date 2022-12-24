@@ -16,30 +16,30 @@ export default function Consultas() {
   const handleClick = () => {
     setClicked(!clicked)
   }
-const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-function onSubmit(data){ 
-  console.log(data);
-  
-return 
-}
-async e => {
-  e.preventDefault()
-  let result = await axios.post(endpoint, onSubmit,data)
-// no se envia la data , pero si se almacena todo en data 
-if (result.data) {
-  {
-    MySwal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Inscripción correcta',
-      showConfirmButton: false,
-      timer: 1500
-    })
+  function onSubmit(data) {
+    console.log(data);
 
+    return
   }
-}
-}
+  async e => {
+    e.preventDefault()
+    let result = await axios.post(endpoint, onSubmit, data)
+    // no se envia la data , pero si se almacena todo en data 
+    if (result.data) {
+      {
+        MySwal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Inscripción correcta',
+          showConfirmButton: false,
+          timer: 1500
+        })
+
+      }
+    }
+  }
 
   return (
     <>
@@ -54,13 +54,13 @@ if (result.data) {
         </div>
 
         <div className={`forms ${clicked ? 'active' : ''}`}>
-        <form onSubmit={handleSubmit((onSubmit))}>
+          <form onSubmit={handleSubmit((onSubmit))}>
 
             <label className="names">Nombre</label>
             <input type="text" id="relleno" {...register("nombre", {
               required: "este campo es obligatorio",
               minLength: 2,
-              maxLength:10,
+              maxLength: 10,
               message: "minimo dos letras"
 
             })} />
@@ -70,7 +70,7 @@ if (result.data) {
             <input type="text" id="relleno"{...register("apellido", {
               required: "este campo es obligatorio",
               minLength: 2,
-              maxLength:10,
+              maxLength: 10,
               message: "minimo 2 letras"
             })} />
             <p>{errors.apellido?.message}</p>
@@ -87,7 +87,7 @@ if (result.data) {
             <label className='names'>Mensaje</label>
             <textarea id='relleno' cols="30" rows="8" borde-radius="10px"  {...register("mensaje", {
               minLength: 2,
-              maxLength:30,
+              maxLength: 30,
               message: "el campo no puede estar vacio",
               required: "este campo es obligatorio",
 
@@ -111,15 +111,12 @@ if (result.data) {
 const NavContainer = styled.nav`
 *{
   font-family:poppins;
-
 }
     .header {
         background-color: #27366B;
         display:flex;
         align-items: center;
         justify-content: space-between;
-        font-family:poppins;
-
       }
       .links {
         position: absolute;
@@ -136,21 +133,36 @@ const NavContainer = styled.nav`
           display: block;
           text-decoration: none;
           font-family:poppins;
-
-      
         }
+      }
+        .forms{
+          background-color: #27366B;
+          align-items: baseline;
+          display:flex;
+          flex-direction: column;
+          border-radius:44px;
+          padding: 10px;
+          width: 89%;
+          margin: 15px;
+          margin-top: 50px;
+             p{
+          color: white;
+          text-align: center;
+          font-size: 12px;  
+        }
+      }
         @media(min-width: 768px){
-          position: initial;
+          position: initial;    
           margin: 0;
           a{
             font-size: 1rem;
             pading: 1rem;
             display: flex;
-  
             justify-content: space-around;
             color: white;
             font-family:poppins;
-            display: inline;}}}
+            display: inline;}
+          }
       .links.active{
         width: 100%;
         display: block;
@@ -170,26 +182,28 @@ const NavContainer = styled.nav`
           color: white;}}
       .logo{
        width:50%;
-       margin: -12px 21px 12px -45px;}
-       .forms{
-        background-color: #27366B;
-        align-items: baseline;
-        display:flex;
-        flex-direction: column;
-        border-radius:44px;
-        padding: 10px;
-        width: 90%;
-        margin: 15px;
-        margin-top: 40px;
-        p{
-          color: white;
-          text-align: center;
-          font-size: 12px;  
-        }
-    }
+       margin: -12px 21px 12px -45px;
+      }
+    //    .forms{
+    //     background-color: #27366B;
+    //     align-items: center;
+    //     display:flex;
+    //     flex-direction: column;
+    //     border-radius:44px;
+    //     padding: 10px;
+    //     width: 70%;
+    //     margin: 6rem;
+    //     margin-top: 40px;
+    //     p{
+    //       color: white;
+    //       text-align: center;
+    //       font-size: 12px;  
+    //     }
+    // }
     .names {
       color: white;
       margin: 24px;
+      display: block;
     }
     #relleno {
       margin:15px;
@@ -203,30 +217,8 @@ button{
   background-color: #27366B;
   border:none;
 margin:1.5rem; }
-@media (min-width: 768){
-  *{
-    font-family:poppins
-  }
-  .logo{
-    width:50%;
-    margin: -12px 21px 12px -45px;}
-    .forms{
-     background-color: #27366B;
-     align-items: baseline;
-     display:flex;
-     flex-direction: column;
-     border-radius:44px;
-     padding: 10px;
-     width: 60%;
-     margin: 15px;
-     margin-top: 40px;
-     p{
-       color: white;
-       text-align: center;
-       font-size: 12px;  
-     }
- }
-}
+
+
 `
 
 const BgDiv = styled.div`

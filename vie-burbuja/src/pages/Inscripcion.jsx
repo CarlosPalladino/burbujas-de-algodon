@@ -144,6 +144,21 @@ const NavContainer = styled.nav`
       display: block;
       text-decoration: none;
     }
+    .form{
+      background-color: #27366B;
+      align-items: baseline;
+      display:flex;
+      flex-direction: column;
+      border-radius:44px;
+      padding: 10px;
+      width: 89%;
+      margin: 15px;
+      margin-top: 50px;
+         p{
+      color: white;
+      text-align: center;
+      font-size: 12px;  
+    }}
     @media(min-width: 768px){
       position: initial;
       margin: 0;

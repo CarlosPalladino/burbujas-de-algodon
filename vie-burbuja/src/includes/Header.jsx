@@ -139,7 +139,6 @@ const Home = styled.div`
     margin:6px;
     }
   @media(min-width: 768px){
-    display:none;   
   }
   .texts.active{
   visibility: hidden;
