@@ -1,26 +1,20 @@
 import React from 'react'
 import Footer from '../includes/Footer';
 import BurguerButton from '../components/BurguerButtom'
-import { useState, UseEffect,  } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import { useForm } from "react-hook-form";
 
-// import Swal from 'sweetalert2'
-// import withReactContent from 'sweetalert2-react-content'
-// const MySwal = withReactContent(Swal)
-
+ import Swal from 'sweetalert2'
+ import withReactContent from 'sweetalert2-react-content'
+ const MySwal = withReactContent(Swal)
 
 let endpoint = "http://localhost:4000/incripcion/create"
 
 export default function Incripcion() {
   const [clicked, setClicked] = useState(false)
-
-
-
   const { register, handleSubmit, formState: { errors } } = useForm();
-
-
 
   const handleClick = () => {
     setClicked(!clicked)
@@ -32,7 +26,7 @@ export default function Incripcion() {
   }async e => {
     e.preventDefault()
     let result = await axios.post(endpoint, onSubmit, data)
-    
+
   if (result.data) {
     MySwal.fire({
       position: 'center',
@@ -113,7 +107,7 @@ export default function Incripcion() {
 
             <section className="buton" >
               <button type="reset">Cancelar</button>
-              <button type="submit" >Enviar</button>
+              <button type="submit">Enviar</button>
             </section>
           </form>
         </section>

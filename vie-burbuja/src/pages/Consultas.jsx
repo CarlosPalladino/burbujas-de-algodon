@@ -1,35 +1,46 @@
 import React from 'react'
 import Footer from '../includes/Footer'
 import BurguerButton from '../components/BurguerButtom'
-import { useState, UseEffect } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";
+
 import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
 
+let endpoint = "http://localhost:4000/mensajes/create"
 
-
-
-
-
-
-
-
-export default function Incripcion() {
-
-  
-  const onSubmit = data => console.log(data);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+export default function Consultas() {
   const [clicked, setClicked] = useState(false)
+const { register, handleSubmit, formState: { errors } } = useForm();
+
   const handleClick = () => {
     setClicked(!clicked)
-
   }
+function onSubmit(data){ 
+  console.log(data);
+
+}async e => {
+  e.preventDefault()
+  let result = await axios.post(endpoint, onSubmit, data)
+
+if (result.data) {
+  MySwal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Inscripción correcta',
+    showConfirmButton: false,
+    timer: 1500
+  })
+}
+}
   return (
     <>
       <NavContainer>
         <div className={`header ${clicked ? 'active' : ''}`}>
           <img src="/burbuja.svg" className='logo' href="../" />    {/*problemas aca */}
-          <BurguerButton clicked={clicked} handleClick={handleClick} />
+          <BurguerButton clicked={clicked} handleClick={onSubmit} />
         </div>
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="/">Inicio</a>
@@ -37,12 +48,13 @@ export default function Incripcion() {
         </div>
 
         <div className={`forms ${clicked ? 'active' : ''}`}>
-          <form onSubmit={handleSubmit((data => {
-          }))}>
+        <form onSubmit={handleSubmit((onSubmit))}>
+
             <label className="names">Nombre</label>
             <input type="text" id="relleno" {...register("nombre", {
               required: "este campo es obligatorio",
               minLength: 2,
+              maxLength:10,
               message: "minimo dos letras"
 
             })} />
@@ -52,6 +64,7 @@ export default function Incripcion() {
             <input type="text" id="relleno"{...register("apellido", {
               required: "este campo es obligatorio",
               minLength: 2,
+              maxLength:10,
               message: "minimo 2 letras"
             })} />
             <p>{errors.apellido?.message}</p>
@@ -67,7 +80,8 @@ export default function Incripcion() {
             <p>{errors.email?.message}</p>
             <label className='names'>Mensaje</label>
             <textarea id='relleno' cols="30" rows="8" borde-radius="10px"  {...register("mensaje", {
-              minLength: 15,
+              minLength: 2,
+              maxLength:30,
               message: "el campo no puede estar vacio",
               required: "este campo es obligatorio",
 
@@ -75,7 +89,7 @@ export default function Incripcion() {
             <p>{errors.mensaje?.message}</p>
             <section className='button'>
               <button type="reset">Cancelar</button>
-              <button type='submit' >Enviar</button>
+              <button type='submit'>Enviar</button>
             </section>
           </form>
         </div>
@@ -161,7 +175,6 @@ const NavContainer = styled.nav`
           color: white;
           text-align: center;
           font-size: 12px;  
-
         }
     }
     .names {
