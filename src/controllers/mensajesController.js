@@ -21,12 +21,14 @@ const mensaje = {
         }
     },
     created: async (req, res) => {
-        let validaciones = validationResult(req)
-        let errors = validaciones
-        if (errors && errors.length > 0) {
-             validaciones.mapped()
-        }
-        else {
+
+        console.log('req.body')
+        // let validaciones = validationResult(req)
+        // let errors = validaciones
+        // if (errors && errors.length > 0) {
+        //      validaciones.mapped()
+        // }
+        // else {
             await mensajes.create({
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
@@ -34,7 +36,7 @@ const mensaje = {
                 mensajes: req.body.mensajes
             })
             return res.send('tu consulta fue realizada')
-        }
+    // }
     },
 
     deelete: async (req, res) => {

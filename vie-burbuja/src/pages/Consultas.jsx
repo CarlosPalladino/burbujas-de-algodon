@@ -4,13 +4,13 @@ import BurguerButton from '../components/BurguerButtom'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";
-
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-const MySwal = withReactContent(Swal)
+import axios from 'axios'
+// import Swal from 'sweetalert2'
+// import withReactContent from 'sweetalert2-react-content'
+// const MySwal = withReactContent(Swal)
 
 let endpoint = "http://localhost:4000/mensajes/create"
-
+  
 export default function Consultas() {
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
@@ -21,30 +21,9 @@ export default function Consultas() {
   function onSubmit(data) {
     console.log(data);
 
-try {
   let result = axios.post(endpoint, data)
-  if (data) {
-    {
-      MySwal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Inscripción correcta',
-        showConfirmButton: false,
-        timer: 1500
-      })
-    }
-  }
-} catch (error) {
- MySwal.fire({
-   position: 'center',
-   icon: 'error',
-   title: 'Inscripción incorrecta',
-   showConfirmButton: false,
-   timer: 1500
- })}
-     
-    
-  
+  console.log(result);
+
 }
   return (
     <>
@@ -61,7 +40,7 @@ try {
         <div className={`forms ${clicked ? 'active' : ''}`}>
 
 
-          <form onSubmit={handleSubmit((onSubmit()))}>
+          <form onSubmit={handleSubmit(onSubmit())}>
 
             <label className="names">Nombre</label>
             <input type="text" id="relleno" {...register("nombre", {
