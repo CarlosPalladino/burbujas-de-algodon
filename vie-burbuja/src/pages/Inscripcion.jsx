@@ -6,9 +6,9 @@ import styled from 'styled-components'
 import axios from 'axios'
 import { useForm } from "react-hook-form";
 
- import Swal from 'sweetalert2'
- import withReactContent from 'sweetalert2-react-content'
- const MySwal = withReactContent(Swal)
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
 
 let endpoint = "http://localhost:4000/incripcion/create"
 
@@ -20,22 +20,23 @@ export default function Incripcion() {
     setClicked(!clicked)
   }
 
-  function onSubmit(data){ 
+  function onSubmit(data) {
     console.log(data);
 
-  }async e => {
-    e.preventDefault()
-    let result = await axios.post(endpoint, onSubmit, data)
+    async e => {
+      let result = await axios.post(endpoint, onSubmit, data)
+      e.preventDefault()
 
-  if (result.data) {
-    MySwal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Inscripción correcta',
-      showConfirmButton: false,
-      timer: 1500
-    })
-  }
+      if (result.data) {
+        MySwal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Inscripción correcta',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
   }
   return (
     <>

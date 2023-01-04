@@ -16,31 +16,36 @@ export default function Consultas() {
   const handleClick = () => {
     setClicked(!clicked)
   }
-const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-function onSubmit(data){ 
-  console.log(data);
-  
-return 
-}
-async e => {
-  e.preventDefault()
-  let result = await axios.post(endpoint, onSubmit,data)
-// no se envia la data , pero si se almacena todo en data 
-if (result.data) {
-  {
-    MySwal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Inscripción correcta',
-      showConfirmButton: false,
-      timer: 1500
-    })
+  function onSubmit(data) {
+    console.log(data);
 
+try {
+  let result = axios.post(endpoint, data)
+  if (data) {
+    {
+      MySwal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Inscripción correcta',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
   }
+} catch (error) {
+ MySwal.fire({
+   position: 'center',
+   icon: 'error',
+   title: 'Inscripción incorrecta',
+   showConfirmButton: false,
+   timer: 1500
+ })}
+     
+    
+  
 }
-}
-
   return (
     <>
       <NavContainer>
@@ -54,13 +59,15 @@ if (result.data) {
         </div>
 
         <div className={`forms ${clicked ? 'active' : ''}`}>
-        <form onSubmit={handleSubmit((onSubmit))}>
+
+
+          <form onSubmit={handleSubmit((onSubmit()))}>
 
             <label className="names">Nombre</label>
             <input type="text" id="relleno" {...register("nombre", {
               required: "este campo es obligatorio",
               minLength: 2,
-              maxLength:10,
+              maxLength: 10,
               message: "minimo dos letras"
 
             })} />
@@ -70,7 +77,7 @@ if (result.data) {
             <input type="text" id="relleno"{...register("apellido", {
               required: "este campo es obligatorio",
               minLength: 2,
-              maxLength:10,
+              maxLength: 10,
               message: "minimo 2 letras"
             })} />
             <p>{errors.apellido?.message}</p>
@@ -87,7 +94,7 @@ if (result.data) {
             <label className='names'>Mensaje</label>
             <textarea id='relleno' cols="30" rows="8" borde-radius="10px"  {...register("mensaje", {
               minLength: 2,
-              maxLength:30,
+              maxLength: 30,
               message: "el campo no puede estar vacio",
               required: "este campo es obligatorio",
 
@@ -95,8 +102,9 @@ if (result.data) {
             <p>{errors.mensaje?.message}</p>
             <section className='button'>
               <button type="reset">Cancelar</button>
-              <button type='submit' onClick={onSubmit}>Enviar</button>
-              {/* <button onClick={()=>alert()}>Enviar</button> */}
+
+              <button type='submit' onClick={onSubmit()}>Enviar</button>
+
             </section>
           </form>
         </div>
