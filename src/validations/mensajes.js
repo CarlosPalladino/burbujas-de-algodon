@@ -38,7 +38,7 @@ const validationResult = [
         .withMessage("El mensaje debe contener minimo dos caracteres")
         .bail()
         .isLength({ min: 2, max: 200 })
-        .withMessage("El nombre debe contener maximo cien(100) caracteres")
+        .withMessage("El nombre debe contener maximo doscientos(200) caracteres")
         .bail(),
 ]
 

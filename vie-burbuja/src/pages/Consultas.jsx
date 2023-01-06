@@ -4,27 +4,38 @@ import BurguerButton from '../components/BurguerButtom'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";
+import {consultas} from "../services/Consultas"
 import axios from 'axios'
 // import Swal from 'sweetalert2'
 // import withReactContent from 'sweetalert2-react-content'
 // const MySwal = withReactContent(Swal)
 
-let endpoint = "http://localhost:4000/mensajes/create"
-  
+
 export default function Consultas() {
+  const [body, setBody] = useState({ nombre: null, apellido: null, email: null, mensajes: null })
+  console.log(body)
+  const seting = e => {
+    setBody({
+      ...body,
+      [e.target.name]: e.target.value
+    })
+  }
+  const onSubmit = async (e) => {
+ try {
+  let result = await consultas(body)
+  console.log(result)
+ } catch (error) {
+  console.error(error)
+ }
+  }
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
     setClicked(!clicked)
   }
+
+
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  function onSubmit(data) {
-    console.log(data);
-
-  let result = axios.post(endpoint, data)
-  console.log(result);
-
-}
   return (
     <>
       <NavContainer>
@@ -40,49 +51,64 @@ export default function Consultas() {
         <div className={`forms ${clicked ? 'active' : ''}`}>
 
 
-          <form onSubmit={handleSubmit(onSubmit())}>
+          <form >
 
             <label className="names">Nombre</label>
-            <input type="text" id="relleno" {...register("nombre", {
-              required: "este campo es obligatorio",
-              minLength: 2,
-              maxLength: 10,
-              message: "minimo dos letras"
+            <input type="text" id="relleno" name="nombre" onChange={seting}
+              // {...register("nombre", {
+              //   required: "este campo es obligatorio",
+              //   minLength: 2,
+              //   maxLength: 10,
+              //   message: "minimo dos letras"
 
-            })} />
+              // })}
+            />
             <p>{errors.nombre?.message}</p>
 
             <label className="names">Apellido</label>
-            <input type="text" id="relleno"{...register("apellido", {
-              required: "este campo es obligatorio",
-              minLength: 2,
-              maxLength: 10,
-              message: "minimo 2 letras"
-            })} />
+            <input type="text" id="relleno" name="apellido" onChange={seting}
+              // {...register("apellido", {
+              //   required: "este campo es obligatorio",
+              //   minLength: 2,
+              //   maxLength: 10,
+              //   message: "minimo 2 letras"
+              // })}
+
+
+            />
             <p>{errors.apellido?.message}</p>
 
             <label className="names">Email</label>
-            <input type="text" id="relleno"  {...register("email", {
-              minLength: 2,
-              message: "no es un  valido",
-              required: "este campo es obligatorio",
+            <input type="text" id="relleno" onChange={seting} name="email"
+              // {...register("email", {
+
+              //   minLength: 2,
+              //   message: "no es un  valido",
+              //   required: "este campo es obligatorio",
 
 
-            })} />
+              // })}
+
+            />
             <p>{errors.email?.message}</p>
             <label className='names'>Mensaje</label>
-            <textarea id='relleno' cols="30" rows="8" borde-radius="10px"  {...register("mensaje", {
-              minLength: 2,
-              maxLength: 30,
-              message: "el campo no puede estar vacio",
-              required: "este campo es obligatorio",
+            <textarea id='relleno' cols="30" rows="8" borde-radius="10px" onChange={seting} 
+            name="mensajes"
+              // name="mensaje"{...register("mensaje", {
+              //   minLength: 2,
+              //   maxLength: 30,
+              //   message: "el campo no puede estar vacio",
+              //   required: "este campo es obligatorio",
 
-            })} ></textarea>
+              // })}
+
+
+            ></textarea>
             <p>{errors.mensaje?.message}</p>
             <section className='button'>
               <button type="reset">Cancelar</button>
 
-              <button type='submit' onClick={onSubmit()}>Enviar</button>
+              <button type='submit' onClick={onSubmit}>Enviar</button>
 
             </section>
           </form>
@@ -190,7 +216,7 @@ button{
   background-color: #27366B;
   border:none;
 margin:1.5rem; }
-@media (min-width: 768){
+@media (min-width: 768px){
   *{
     font-family:poppins
   }
@@ -212,6 +238,7 @@ margin:1.5rem; }
        text-align: center;
        font-size: 12px;  
      }
+    }
  }
 }
 `
