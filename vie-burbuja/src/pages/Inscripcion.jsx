@@ -6,13 +6,13 @@ import styled from 'styled-components'
 import { useForm } from "react-hook-form";
 import { Incription } from "../services/Incription"
 
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-const MySwal = withReactContent(Swal)
+// import Swal from 'sweetalert2'
+// import withReactContent from 'sweetalert2-react-content'
+// const MySwal = withReactContent(Swal)
 
 
 export default function Incripcion() {  
-  const [body, setBody] = useState({ nombre: null, apellido: null, email: null, telefono:null,nombre: null, apellido: null, turno:null })
+  const [body, setBody] = useState({ nombre0: null, apellido0: null, email: null, telefono:null,nombre1: null, apellido1: null, turno:null })
   console.log(body)
   const seting = e => {
     setBody({
@@ -59,7 +59,7 @@ export default function Incripcion() {
           <form onSubmit={handleSubmit((onSubmit))}>
 
             <label className="names">Nombre</label>
-            <input type="text" id="relleno"  name="nombre" onChange={seting}
+            <input type="text" id="relleno"  name="nombre0" onChange={seting}
             // {...register("nombre", {
             //   required: "este campo es obligatorio",
             //   minLength: 2,
@@ -70,7 +70,7 @@ export default function Incripcion() {
             <p>{errors.nombre?.message}</p>
 
             <label className="names">Apellido</label>
-            <input type="text" id="relleno"  name="apellido" onChange={seting} 
+            <input type="text" id="relleno"  name="apellido0" onChange={seting} 
             //  {...register("apellido", {
             //   required: "este campo es obligatorio",
             //   minLength: 2,
@@ -99,7 +99,7 @@ export default function Incripcion() {
             // })}
             />
             <h3>Hijos</h3>
-            <input type="text" id="relleno"  name="nombre" onChange={seting}
+            <input type="text" id="relleno"  name="nombre1" onChange={seting}
             // {...register("nombre", 
             //   required: "este campo es obligatorio",
             //   minLength: 2,
@@ -110,7 +110,7 @@ export default function Incripcion() {
             <p>{errors.nombre?.message}</p>
 
             <label className="names">Apellido</label>
-            <input type="text" id="relleno"  name="apellido" onChange={seting}
+            <input type="text" id="relleno"  name="apellido1" onChange={seting}
             //  {...register("apellido", {
             //   required: "este campo es obligatorio",
             //   minLength: 2,
