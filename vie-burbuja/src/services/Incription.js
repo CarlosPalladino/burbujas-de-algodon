@@ -1,6 +1,6 @@
-export async function consultas(body) {
+export async function Incription(body) {
     try {
-        let query = await fetch("http://localhost:4000/mensajes/create", {
+        let query = await fetch("http://localhost:4000/padres/create", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'

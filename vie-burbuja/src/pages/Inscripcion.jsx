@@ -3,9 +3,8 @@ import Footer from '../includes/Footer';
 import BurguerButton from '../components/BurguerButtom'
 import { useState } from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
 import { useForm } from "react-hook-form";
-import { incription } from "../services/Incripcion"
+import { Incription } from "../services/Incription"
 
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -13,7 +12,7 @@ const MySwal = withReactContent(Swal)
 
 
 export default function Incripcion() {  
-  const [body, setBody] = useState({ nombre: null, apellido: null, email: null,nombre: null, apellido: null, turno:null })
+  const [body, setBody] = useState({ nombre: null, apellido: null, email: null, telefono:null,nombre: null, apellido: null, turno:null })
   console.log(body)
   const seting = e => {
     setBody({
@@ -23,7 +22,7 @@ export default function Incripcion() {
   }
   const onSubmit = async (e) => {
     try {
-      let result = await incription(body)
+      let result = await Incription(body)
       console.log(result)
     } catch (error) {
       console.error(error)
@@ -44,13 +43,6 @@ export default function Incripcion() {
   const handleClick = () => {
     setClicked(!clicked)
   }
-
-
- 
-
-    
-    
-  
   return (
     <>
       <NavContainer>
@@ -64,10 +56,7 @@ export default function Incripcion() {
         </div>
         <section className={`form ${clicked ? 'active' : ''}`}>
 
-
-
           <form onSubmit={handleSubmit((onSubmit))}>
-
 
             <label className="names">Nombre</label>
             <input type="text" id="relleno"  name="nombre" onChange={seting}
@@ -80,7 +69,7 @@ export default function Incripcion() {
             />
             <p>{errors.nombre?.message}</p>
 
-            <label className="names"  >Apellido</label>
+            <label className="names">Apellido</label>
             <input type="text" id="relleno"  name="apellido" onChange={seting} 
             //  {...register("apellido", {
             //   required: "este campo es obligatorio",
@@ -101,9 +90,17 @@ export default function Incripcion() {
              />
             <p>{errors.email?.message}</p>
 
+            <label className="names" >Telefono</label>
+            <input type="number" id="relleno"  name="telefono" onChange={seting}
+                    // {...register("telefono", {
+            //   required: "este campo es obligatorio",
+          
+
+            // })}
+            />
             <h3>Hijos</h3>
             <input type="text" id="relleno"  name="nombre" onChange={seting}
-            // {...register("nombre", {
+            // {...register("nombre", 
             //   required: "este campo es obligatorio",
             //   minLength: 2,
             //   message: "minimo dos letras"
@@ -123,11 +120,14 @@ export default function Incripcion() {
             <p>{errors.apellido?.message}</p>
 
             <label className="names">turno</label>
-            <select name="turno" id="turno"  >
-              <option value="mañana">mañana</option>
-              <option value="mañana">tarde</option>
-
-            </select>
+            <input type="text" id="relleno"  name="turno" onChange={seting}  
+                 //  {...register("turno", {
+            //   required: "este campo es obligatorio",
+            //   minLength: 2,
+            //   message: "minimo 2 letras"
+            // })}
+            />
+            <p>{errors.turno?.message}</p>
 
             <section className="buton" >
               <button type="reset">Cancelar</button>

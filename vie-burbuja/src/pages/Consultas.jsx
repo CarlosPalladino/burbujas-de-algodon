@@ -5,7 +5,6 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";
 import {consultas} from "../services/Consultas"
-import axios from 'axios'
 // import Swal from 'sweetalert2'
 // import withReactContent from 'sweetalert2-react-content'
 // const MySwal = withReactContent(Swal)
