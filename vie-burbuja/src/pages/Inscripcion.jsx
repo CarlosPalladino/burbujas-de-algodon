@@ -11,8 +11,8 @@ import { Incription } from "../services/Incription"
 // const MySwal = withReactContent(Swal)
 
 
-export default function Incripcion() {  
-  const [body, setBody] = useState({ nombre0: null, apellido0: null, email: null, telefono:null,nombre1: null, apellido1: null, turno:null })
+export default function Incripcion() {
+  const [body, setBody] = useState({ nombre0: null, apellido0: null, email: null, telefono: null, nombre1: null, apellido1: null, turno: null })
   console.log(body)
   const seting = e => {
     setBody({
@@ -27,15 +27,15 @@ export default function Incripcion() {
     } catch (error) {
       console.error(error)
     }
-      // if (result.data) {
-      //   MySwal.fire({
-      //     position: 'center',
-      //     icon: 'success',
-      //     title: 'Inscripción correcta',
-      //     showConfirmButton: false,
-      //     timer: 1500
-      //   })
-      // }
+    // if (result.data) {
+    //   MySwal.fire({
+    //     position: 'center',
+    //     icon: 'success',
+    //     title: 'Inscripción correcta',
+    //     showConfirmButton: false,
+    //     timer: 1500
+    //   })
+    // }
   }
   const [clicked, setClicked] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -59,7 +59,7 @@ export default function Incripcion() {
           <form onSubmit={handleSubmit((onSubmit))}>
 
             <label className="names">Nombre</label>
-            <input type="text" id="relleno"  name="nombre0" onChange={seting}
+            <input type="text" id="relleno" name="nombre0" onChange={seting}
             // {...register("nombre", {
             //   required: "este campo es obligatorio",
             //   minLength: 2,
@@ -70,7 +70,7 @@ export default function Incripcion() {
             <p>{errors.nombre?.message}</p>
 
             <label className="names">Apellido</label>
-            <input type="text" id="relleno"  name="apellido0" onChange={seting} 
+            <input type="text" id="relleno" name="apellido0" onChange={seting}
             //  {...register("apellido", {
             //   required: "este campo es obligatorio",
             //   minLength: 2,
@@ -80,48 +80,48 @@ export default function Incripcion() {
             <p>{errors.apellido?.message}</p>
 
             <label className="names" >Email</label>
-            <input type="text" id="relleno"  name="email" onChange={seting}
+            <input type="text" id="relleno" name="email" onChange={seting}
             // {...register("email", {
             //   minLength: 2,
             //   pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             //   message: "no es un  valido"
 
             // })}
-             />
+            />
             <p>{errors.email?.message}</p>
 
             <label className="names" >Telefono</label>
-            <input type="number" id="relleno"  name="telefono" onChange={seting}
-                    // {...register("telefono", {
+            <input type="number" id="relleno" name="telefono" onChange={seting}
+            // {...register("telefono", {
             //   required: "este campo es obligatorio",
-          
+
 
             // })}
             />
             <h3>Hijos</h3>
-            <input type="text" id="relleno"  name="nombre1" onChange={seting}
+            <input type="text" id="relleno" name="nombre1" onChange={seting}
             // {...register("nombre", 
             //   required: "este campo es obligatorio",
             //   minLength: 2,
             //   message: "minimo dos letras"
 
             // })}
-             />
+            />
             <p>{errors.nombre?.message}</p>
 
             <label className="names">Apellido</label>
-            <input type="text" id="relleno"  name="apellido1" onChange={seting}
+            <input type="text" id="relleno" name="apellido1" onChange={seting}
             //  {...register("apellido", {
             //   required: "este campo es obligatorio",
             //   minLength: 2,
             //   message: "minimo 2 letras"
             // })}
-             />
+            />
             <p>{errors.apellido?.message}</p>
 
             <label className="names">turno</label>
-            <input type="text" id="relleno"  name="turno" onChange={seting}  
-                 //  {...register("turno", {
+            <input type="text" id="relleno" name="turno" onChange={seting}
+            //  {...register("turno", {
             //   required: "este campo es obligatorio",
             //   minLength: 2,
             //   message: "minimo 2 letras"
@@ -168,21 +168,6 @@ const NavContainer = styled.nav`
       display: block;
       text-decoration: none;
     }
-    .form{
-      background-color: #27366B;
-      align-items: baseline;
-      display:flex;
-      flex-direction: column;
-      border-radius:44px;
-      padding: 10px;
-      width: 89%;
-      margin: 15px;
-      margin-top: 50px;
-         p{
-      color: white;
-      text-align: center;
-      font-size: 12px;  
-    }}
     @media(min-width: 768px){
       position: initial;
       margin: 0;
@@ -231,7 +216,30 @@ const NavContainer = styled.nav`
     color: white;
     text-align: center;
     font-size: 12px;  
-  }}
+  }
+}
+@media (min-width: 768px){
+  .form{
+    background-color: #27366B;
+    align-items: baseline;
+    display:flex;
+    flex-direction: column;
+    border-radius:44px;
+    padding: 10px;
+    width: 60%;
+    margin: 15px;
+    margin-top: 50px;
+       p{
+    color: white;
+    text-align: center;
+    font-size: 12px;  
+  }
+}
+}
+@media (min-width: 1024px){
+  
+}
+
 .form.active{
   visibility:hidden;
 }
@@ -263,8 +271,6 @@ const NavContainer = styled.nav`
   background-color: #27366B;
   border:none;
 margin:1.5rem;   } `
-
-
 const BgDiv = styled.div`
     background-color: #27366B;
       position: absolute;
