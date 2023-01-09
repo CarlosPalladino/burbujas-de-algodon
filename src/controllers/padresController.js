@@ -36,14 +36,14 @@ const tutores = {
 
     created: async (req, res) => {
         let padresdb = await padres.create({
-            nombre: req.body.nombre[0],
-            apellido: req.body.apellido[0],
+            nombre: req.body.nombre0,
+            apellido: req.body.apellido0,
             email: req.body.email,
             telefono: req.body.telefono,
         })
         let hijosdb = await hijos.create({
-            nombre: req.body.nombre[1],
-            apellido: req.body.apellido[1],
+            nombre: req.body.nombre1,
+            apellido: req.body.apellido1,
             turno: req.body.turno,
         })
         await padresdb.addHijos(hijosdb)
