@@ -99,6 +99,7 @@ export default function Incripcion() {
             // })}
             />
             <h3>Hijos</h3>
+            <label className="names">Nombre</label>
             <input type="text" id="relleno" name="nombre1" onChange={seting}
             // {...register("nombre", 
             //   required: "este campo es obligatorio",
@@ -220,24 +221,32 @@ const NavContainer = styled.nav`
 }
 @media (min-width: 768px){
   .form{
-    background-color: #27366B;
-    align-items: baseline;
-    display:flex;
-    flex-direction: column;
+    background-color: #27366B;  
     border-radius:44px;
     padding: 10px;
     width: 60%;
-    margin: 15px;
+    aling-items:center;
+    margin: 10rem;
     margin-top: 50px;
        p{
     color: white;
-    text-align: center;
+    // text-align: center;
     font-size: 12px;  
   }
+  #relleno {
+    margin:15px;
+    padding:3px;
+    border-radius:10px;
+   }
+   .names{
+    color: white;
+    margin: 18px;
+    display: flex
+   }
 }
 }
 @media (min-width: 1024px){
-  
+
 }
 
 .form.active{
@@ -254,6 +263,7 @@ const NavContainer = styled.nav`
   margin-top:2px;
   border-radius:10px;
  }
+
  #turno{
   width:69%;
   margin: 15px;
