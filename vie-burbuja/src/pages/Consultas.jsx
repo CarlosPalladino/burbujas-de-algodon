@@ -4,7 +4,7 @@ import BurguerButton from '../components/BurguerButtom'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";
-import {consultas} from "../services/Consultas"
+import { consultas } from "../services/Consultas"
 // import Swal from 'sweetalert2'
 // import withReactContent from 'sweetalert2-react-content'
 // const MySwal = withReactContent(Swal)
@@ -20,12 +20,12 @@ export default function Consultas() {
     })
   }
   const onSubmit = async (e) => {
- try {
-  let result = await consultas(body)
-  console.log(result)
- } catch (error) {
-  console.error(error)
- }
+    try {
+      let result = await consultas(body)
+      console.log(result)
+    } catch (error) {
+      console.error(error)
+    }
   }
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
@@ -46,32 +46,30 @@ export default function Consultas() {
           <a onClick={handleClick} href="/">Inicio</a>
           <a onClick={handleClick} href="./Incripcion">Incrcipcion</a>
         </div>
-
-        <div className={`forms ${clicked ? 'active' : ''}`}>
-
-
+      </NavContainer>
+      <Main>
+        <div className={`form ${clicked ? 'active' : ''}`}>
           <form >
-
             <label className="names">Nombre</label>
             <input type="text" id="relleno" name="nombre" onChange={seting}
-              // {...register("nombre", {
-              //   required: "este campo es obligatorio",
-              //   minLength: 2,
-              //   maxLength: 10,
-              //   message: "minimo dos letras"
+            // {...register("nombre", {
+            //   required: "este campo es obligatorio",
+            //   minLength: 2,
+            //   maxLength: 10,
+            //   message: "minimo dos letras"
 
-              // })}
+            // })}
             />
             <p>{errors.nombre?.message}</p>
 
             <label className="names">Apellido</label>
             <input type="text" id="relleno" name="apellido" onChange={seting}
-              // {...register("apellido", {
-              //   required: "este campo es obligatorio",
-              //   minLength: 2,
-              //   maxLength: 10,
-              //   message: "minimo 2 letras"
-              // })}
+            // {...register("apellido", {
+            //   required: "este campo es obligatorio",
+            //   minLength: 2,
+            //   maxLength: 10,
+            //   message: "minimo 2 letras"
+            // })}
 
 
             />
@@ -79,32 +77,32 @@ export default function Consultas() {
 
             <label className="names">Email</label>
             <input type="text" id="relleno" onChange={seting} name="email"
-              // {...register("email", {
+            // {...register("email", {
 
-              //   minLength: 2,
-              //   message: "no es un  valido",
-              //   required: "este campo es obligatorio",
+            //   minLength: 2,
+            //   message: "no es un  valido",
+            //   required: "este campo es obligatorio",
 
 
-              // })}
+            // })}
 
             />
             <p>{errors.email?.message}</p>
             <label className='names'>Mensaje</label>
-            <textarea id='relleno' cols="30" rows="8" borde-radius="10px" onChange={seting} 
-            name="mensajes"
-              // name="mensaje"{...register("mensaje", {
-              //   minLength: 2,
-              //   maxLength: 30,
-              //   message: "el campo no puede estar vacio",
-              //   required: "este campo es obligatorio",
+            <textarea id='relleno' cols="30" rows="8" borde-radius="10px" onChange={seting}
+              name="mensajes"
+            // name="mensaje"{...register("mensaje", {
+            //   minLength: 2,
+            //   maxLength: 30,
+            //   message: "el campo no puede estar vacio",
+            //   required: "este campo es obligatorio",
 
-              // })}
+            // })}
 
 
             ></textarea>
             <p>{errors.mensaje?.message}</p>
-            <section className='button'>
+            <section className='buton'>
               <button type="reset">Cancelar</button>
 
               <button type='submit' onClick={onSubmit}>Enviar</button>
@@ -113,13 +111,138 @@ export default function Consultas() {
           </form>
         </div>
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
-      </NavContainer>
+      </Main>
+
       <Footer />
     </>
   )
 }
 
+const Main = styled.nav`
+.form{
+  background-color: #27366B;
+  align-items: baseline;
+  display:flex;
+  flex-direction: column;
+  border-radius:44px;
+  padding: 10px;
+  width: 89%;
+  margin: 15px;
+  margin-top: 50px;
+     p{
+  color: white;
+  text-align: center;
+  font-size: 12px;  
+}
+}
+.form.active{
+visibility:hidden;
+}
+  h3{
+    color: white;
+    margin:9px;
+    font-size:22px
+  }   }
+#relleno {
+margin:15px;
+padding:3px;
+margin-top:2px;
+border-radius:10px;
+}
 
+#turno{
+width:69%;
+margin: 15px;
+margin-top: 2px;
+border-radius: 10px;
+padding: 3px
+}
+.names{
+color: white;
+margin: 24px;
+}
+button{
+padding: 10px;
+color:white;
+background-color: #27366B;
+border:none;
+margin:1.5rem;   }
+@media (min-width: 768px){
+.form{
+  border-radius:44px;
+  padding: 10px;
+  fonst-size:20px;
+  width: 60%;
+  align-items: center;
+  margin: 10rem;
+  margin-top: 50px;
+     p{
+  color: white;
+  font-size: 12px;  
+}
+#relleno {
+  margin:15px;
+  padding:3px;
+  border-radius:10px;
+ }
+ .names{
+  color: white;
+  margin: 18px;
+  display: flex
+ }
+ button{
+  padding: 10px;
+  font-size:20px;
+  color:white;
+  background-color: #27366B;
+  border:none;
+  
+}
+}
+}
+
+@media (min-width: 1024px){
+  *{
+    font-size:21px;
+    color:white;
+    font-family:poppins
+
+  }
+  .form{
+    border-radius:44px;
+    padding: 10px;
+    width: 60%;
+    font-size: 20px;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+       p{
+    color: white;
+    font-size: 12px;  
+  }
+  #relleno {
+    margin:15px;
+    padding:5px;
+    border-radius:10px;
+    width:100%;
+   }
+   .names{
+    color: white;
+    margin: 18px;
+    display: flex
+   }
+   .buton{
+    padding: 10px;
+    color:white;
+    background-color: #27366B;
+    border:none;
+    
+  }
+  }
+
+}
+
+`
 const NavContainer = styled.nav`
 *{
   font-family:poppins;
@@ -148,8 +271,6 @@ const NavContainer = styled.nav`
           display: block;
           text-decoration: none;
           font-family:poppins;
-
-      
         }
         @media(min-width: 768px){
           position: initial;
@@ -182,66 +303,10 @@ const NavContainer = styled.nav`
           color: white;}}
       .logo{
        width:50%;
-       margin: -12px 21px 12px -45px;}
-       .forms{
-        background-color: #27366B;
-        align-items: baseline;
-        display:flex;
-        flex-direction: column;
-        border-radius:44px;
-        padding: 10px;
-        width: 90%;
-        margin: 15px;
-        margin-top: 40px;
-        p{
-          color: white;
-          text-align: center;
-          font-size: 12px;  
-        }
-    }
-    .names {
-      color: white;
-      margin: 24px;
-    }
-    #relleno {
-      margin:15px;
-      padding:3px;
-      border-radius:10px;}
-     .forms.active{
-      visibility:hidden;}
-button{
-  padding: 10px;
-  color:white;
-  background-color: #27366B;
-  border:none;
-margin:1.5rem; }
-@media (min-width: 768px){
-  *{
-    font-family:poppins
-  }
-  .logo{
-    width:50%;
-    margin: -12px 21px 12px -45px;}
-    .forms{
-     background-color: #27366B;
-     align-items: baseline;
-     display:flex;
-     flex-direction: column;
-     border-radius:44px;
-     padding: 10px;
-     width: 60%;
-     margin: 15px;
-     margin-top: 40px;
-     p{
-       color: white;
-       text-align: center;
-       font-size: 12px;  
-     }
-    }
- }
-}
+       margin: -12px 21px 12px -45px;
+      }
+       
 `
-
 const BgDiv = styled.div`
     background-color: #27366B;
       position: absolute;

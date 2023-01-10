@@ -46,7 +46,6 @@ export default function Navbar() {
 const NavContainer = styled.nav`
 *{
   font-family:poppins;
-  text-align:center;
   letter-spacing: 5px;
   color:white;
 }

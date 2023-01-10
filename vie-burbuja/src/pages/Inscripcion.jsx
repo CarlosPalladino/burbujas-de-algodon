@@ -46,14 +46,18 @@ export default function Incripcion() {
   return (
     <>
       <NavContainer>
-        <div className={`header ${clicked ? 'active' : ''}`}>
-          <img src="/burbuja.svg" className='logo' href="../" />  {/*problemas aca */}
+          <img src="/burbuja.svg" className='logo' href="../" />  
+          {/*problemas aca */}
+          <article className='burguer'>
           <BurguerButton clicked={clicked} handleClick={handleClick} />
-        </div>
-        <div className={`links ${clicked ? 'active' : ''}`}>
+          </article>
+     <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="/">Inicio</a>
           <a onClick={handleClick} href="./Consultas">Consultas</a>
         </div>
+      </NavContainer>
+
+      <Main>
         <section className={`form ${clicked ? 'active' : ''}`}>
 
           <form onSubmit={handleSubmit((onSubmit))}>
@@ -137,24 +141,161 @@ export default function Incripcion() {
           </form>
         </section>
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
-
-      </NavContainer>
+      </Main>
       <Footer />
     </>
   )
 }
 
+
+
+const Main = styled.nav` 
+.form{
+  background-color: #27366B;
+  align-items: baseline;
+  display:flex;
+  flex-direction: column;
+  border-radius:44px;
+  padding: 10px;
+  width: 89%;
+  margin: 15px;
+  margin-top: 50px;
+     p{
+  color: white;
+  text-align: center;
+  font-size: 12px;  
+}
+}
+.form.active{
+visibility:hidden;
+}
+  h3{
+    color: white;
+    margin:9px;
+    font-size:22px
+  }   }
+#relleno {
+margin:15px;
+padding:3px;
+margin-top:2px;
+border-radius:10px;
+}
+
+#turno{
+width:69%;
+margin: 15px;
+margin-top: 2px;
+border-radius: 10px;
+padding: 3px
+}
+.names{
+color: white;
+margin: 24px;
+}
+button{
+padding: 10px;
+color:white;
+background-color: #27366B;
+border:none;
+margin:1.5rem;   }
+@media (min-width: 768px){
+.form{
+  border-radius:44px;
+  padding: 10px;
+  fonst-size:20px;
+  width: 60%;
+  align-items: center;
+  margin: 10rem;
+  margin-top: 50px;
+     p{
+  color: white;
+  font-size: 12px;  
+}
+#relleno {
+  margin:15px;
+  padding:3px;
+  border-radius:10px;
+ }
+ .names{
+  color: white;
+  margin: 18px;
+  display: flex
+ }
+ button{
+  padding: 10px;
+  font-size:20px;
+  color:white;
+  background-color: #27366B;
+  border:none;
+  
+}
+}
+}
+
+@media (min-width: 1024px){
+  *{
+    font-size:21px;
+    color:white;
+    font-family:poppins
+
+  }
+  .form{
+    border-radius:44px;
+    padding: 10px;
+    width: 60%;
+    font-size: 20px;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+       p{
+    color: white;
+    font-size: 12px;  
+  }
+  #relleno {
+    margin:15px;
+    padding:5px;
+    border-radius:10px;
+    width:100%;
+   }
+   .names{
+    color: white;
+    margin: 18px;
+    display: flex
+   }
+   .buton{
+    padding: 10px;
+    color:white;
+    background-color: #27366B;
+    border:none;
+    
+  }
+  }
+
+}
+
+
+`
 const NavContainer = styled.nav`
 *{
   font-family:poppins;
+  letter-spacing: 5px;
+  color:white;
 }
-.header {
-    background-color: #27366B;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
+  background-color: #27366B;
+  display: flex;
+  justify-content: space-between;
+align-items: center;
+
+.logo{
+  width: 50%;
+  margin: -12px 21px 12px -45px;
+}
+  a{
+    text-decoration: none;
+    margin-right: 1rem;
+    font-size: 1rem
   }
-  .links {
+  .links{
     position: absolute;
     top: -700px;
     left: -2000px;
@@ -164,19 +305,17 @@ const NavContainer = styled.nav`
     text-align: center;
     transition: all .5s ease;
     a{
-      color: white;
       font-size: 2rem;
       display: block;
-      text-decoration: none;
     }
+
     @media(min-width: 768px){
       position: initial;
       margin: 0;
       a{
-        font-size: 1rem;
+        // font-size: 1rem;
         pading: 1rem;
         justify-content: space-around;
-        color: white;
         display: inline;
       }
       display: block;
@@ -192,95 +331,20 @@ const NavContainer = styled.nav`
     top: 23%;
     left: 10px;
     right: 10px;
-    text-align: center;
     a{
       font-size: 2rem;
       margin-top: 12px;
-      color: white;ÑÑ
     }
   }
-  .logo{
-   width:50%;
-   margin: -12px 21px 12px -45px;
+  .burguer{
+    @media(min-width: 768px){
+      display: none;
+    }
   }
-   .form{
-    background-color: #27366B;
-    align-items: baseline;
-    display:flex;
-    flex-direction: column;
-    border-radius:44px;
-    padding: 10px;
-    width: 89%;
-    margin: 15px;
-    margin-top: 50px;
-       p{
-    color: white;
-    text-align: center;
-    font-size: 12px;  
-  }
-}
-@media (min-width: 768px){
-  .form{
-    background-color: #27366B;  
-    border-radius:44px;
-    padding: 10px;
-    width: 60%;
-    aling-items:center;
-    margin: 10rem;
-    margin-top: 50px;
-       p{
-    color: white;
-    // text-align: center;
-    font-size: 12px;  
-  }
-  #relleno {
-    margin:15px;
-    padding:3px;
-    border-radius:10px;
-   }
-   .names{
-    color: white;
-    margin: 18px;
-    display: flex
-   }
-}
-}
-@media (min-width: 1024px){
+  
+  `
 
-}
-
-.form.active{
-  visibility:hidden;
-}
-    h3{
-      color: white;
-      margin:9px;
-      font-size:22px
-    }   }
- #relleno {
-  margin:15px;
-  padding:3px;
-  margin-top:2px;
-  border-radius:10px;
- }
-
- #turno{
-  width:69%;
-  margin: 15px;
-  margin-top: 2px;
-  border-radius: 10px;
-  padding: 3px
- }
- .names{
-  color: white;
-  margin: 24px;
- }
- button{
-  padding: 10px;
-  color:white;
-  background-color: #27366B;
-  border:none;
-margin:1.5rem;   } `
+ 
 const BgDiv = styled.div`
     background-color: #27366B;
       position: absolute;
@@ -294,5 +358,5 @@ const BgDiv = styled.div`
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 138%;
       }`
