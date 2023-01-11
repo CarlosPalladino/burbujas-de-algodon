@@ -73,16 +73,16 @@ align-items: center;
     text-align: center;
     transition: all .5s ease;
     a{
-      font-size: 2rem;
+      font-size: 1.5rem;
       display: block;
+      border-bottom: 2px solid #999;
     }
 
     @media(min-width: 768px){
       position: initial;
       margin: 0;
       a{
-        font-size: 1rem;
-        pading: 1rem;
+        pading: 1.5rem;
         justify-content: space-around;
         display: inline;
       }

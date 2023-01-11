@@ -102,7 +102,7 @@ export default function Incripcion() {
 
             // })}
             />
-            <h3>Hijos</h3>
+            <h2>Hijos</h2>
             <label className="names">Nombre</label>
             <input type="text" id="relleno" name="nombre1" onChange={seting}
             // {...register("nombre", 
@@ -169,10 +169,13 @@ const Main = styled.nav`
 .form.active{
 visibility:hidden;
 }
-  h3{
+  h2{
     color: white;
     margin:9px;
-    font-size:22px
+    font-size:22px;
+    border-bottom: 2px solid #999;
+    text-align: center;
+
   }   }
 #relleno {
 margin:15px;
@@ -231,13 +234,10 @@ margin:1.5rem;   }
 }
 }
 }
-
 @media (min-width: 1024px){
   *{
     font-size:21px;
-    color:white;
-    font-family:poppins
-
+    font-family:poppins;
   }
   .form{
     border-radius:44px;
@@ -245,7 +245,7 @@ margin:1.5rem;   }
     width: 60%;
     font-size: 20px;
     align-items: center;
-    margin: auto;
+    margin: 13rem;
     margin-top: 50px;
        p{
     color: white;
@@ -307,6 +307,8 @@ align-items: center;
     a{
       font-size: 2rem;
       display: block;
+      border-bottom: 2px solid #999;
+
     }
 
     @media(min-width: 768px){

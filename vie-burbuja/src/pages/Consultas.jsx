@@ -38,8 +38,9 @@ export default function Consultas() {
   return (
     <>
       <NavContainer>
-        <div className={`header ${clicked ? 'active' : ''}`}>
-          <img src="/burbuja.svg" className='logo' href="../" />    {/*problemas aca */}
+          <img src="/burbuja.svg" className='logo' href="../" />  
+            {/*problemas aca */}
+            <div className="burguer">
           <BurguerButton clicked={clicked} handleClick={handleClick} />
         </div>
         <div className={`links ${clicked ? 'active' : ''}`}>
@@ -200,7 +201,6 @@ margin:1.5rem;   }
 }
 }
 }
-
 @media (min-width: 1024px){
   *{
     font-size:21px;
@@ -214,7 +214,7 @@ margin:1.5rem;   }
     width: 60%;
     font-size: 20px;
     align-items: center;
-    margin: auto;
+    margin: 13rem;
     margin-top: 50px;
        p{
     color: white;
@@ -246,67 +246,70 @@ margin:1.5rem;   }
 const NavContainer = styled.nav`
 *{
   font-family:poppins;
-
+  letter-spacing: 5px;
+  color:white;
 }
-    .header {
-        background-color: #27366B;
-        display:flex;
-        align-items: center;
-        justify-content: space-between;
-        font-family:poppins;
+  background-color: #27366B;
+  display: flex;
+  justify-content: space-between;
+align-items: center;
 
-      }
-      .links {
-        position: absolute;
-        top: -700px;
-        left: -2000px;
-        right: 0;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-        transition: all .5s ease;
-        a{
-          color: white;
-          font-size: 2rem;
-          display: block;
-          text-decoration: none;
-          font-family:poppins;
-        }
-        @media(min-width: 768px){
-          position: initial;
-          margin: 0;
-          a{
-            font-size: 1rem;
-            pading: 1rem;
-            display: flex;
-  
-            justify-content: space-around;
-            color: white;
-            font-family:poppins;
-            display: inline;}}}
-      .links.active{
-        width: 100%;
-        display: block;
-        margin:10px;
-        position: absolute;
-        margin-left: auto;
-        margin-right: auto;
-        top: 23%;
-        left: 10px;
-        right: 10px;
-        text-align: center;
-        a{
-          font-size: 2rem;
-          margin-top: 5rem;
-          display:block;
+.logo{
+  width: 50%;
+  margin: -12px 21px 12px -45px;
+}
+  a{
+    text-decoration: none;
+    margin-right: 1rem;
+    font-size: 1rem
+  }
+  .links{
+    position: absolute;
+    top: -700px;
+    left: -2000px;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    transition: all .5s ease;
+    a{
+      font-size: 1.5rem;
+      display: block;
+      border-bottom: 2px solid #999;
+    }
 
-          color: white;}}
-      .logo{
-       width:50%;
-       margin: -12px 21px 12px -45px;
+    @media(min-width: 768px){
+      position: initial;
+      margin: 0;
+      a{
+        pading: 1.5rem;
+        justify-content: space-around;
+        display: inline;
       }
-       
-`
+      display: block;
+    }
+  }
+  .links.active{
+    width: 100%;
+    display: block;
+    margin:10px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 23%;
+    left: 10px;
+    right: 10px;
+    a{
+      font-size: 2rem;
+      margin-top: 12px;
+    }
+  }
+  .burguer{
+    @media(min-width: 768px){
+      display: none;
+    }
+  }`
+
 const BgDiv = styled.div`
     background-color: #27366B;
       position: absolute;
